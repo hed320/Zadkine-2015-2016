@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Registratie</h1>
+    </header>
+    <form method="POST" action="form.html">
+        <fieldset id="persgegevens">
+            <label for="voornaam"></label>
+            <input type="text" id="voornaam" name="voornaam" placeholder="Voornaam" required>
+            <label for="achternaam"></label>
+            <input type="text" id="achternaam" name="achternaam" placeholder="Achternaam" required>
+            <label for="telnr"></label>
+            <input type="text" id="telnr" name="telnr" placeholder="+31612345678" pattern="^([0|\+[0-9]{1,5})?([1-9][0-9]{9})$">
+            <label for="gebdatum"></label>
+            <input type="date" id="gebdatum" name="gebdatum" required>
+            <div class="know">
+            <label for="knowus"></label>
+            <select id="knowus" name="knowus">
+                <option value="tv">Tv</option>
+                <option value="facebook">Facebook</option>
+                <option value="youtube">Youtube</option>
+                <option value="ad">Advertentie</option>
+                <option value="else">Anders</option>
+            </select>Hoe heeft u van ons gehoord?
+            </div>
+            <label for="man"></label>
+            <input type="radio" id="man" name="geslacht" value="Man">Man
+            <label for="vrouw"></label>
+            <input type="radio" id="vrouw" name="geslacht" value="Vrouw">Vrouw
+        </fieldset>
+        <fieldset id="login">
+            <label for="username"></label>
+            <input type="text" id="username" name="username" placeholder="Gebruikersnaam" required>
+            <label for="email"></label>
+            <input type="email" id="email" name="email" placeholder="E-mail" required>
+            <label for="password"></label>
+            <input type="password" id="password" name="password" placeholder="Wachtwoord" required>
+            <label for="password"></label>
+            <input type="password" id="password" name="password" placeholder="Herhaal Wachtwoord" required>
+            <label for="premail"></label>
+        </fieldset>
+        <fieldset id="check">
+            <input type="checkbox" id="premail" name="premail" checked>: Wilt u maandelijks kortingen op uw email krijgen.<br>
+            <label for="tos"></label>
+            <input type="checkbox" id="tos" name="tos" required>: Gaat u akkoord met de <a href="http://www.google.nl" target="_blank">gebruikersvoorwaarden</a>.
+        </fieldset>
+            <label for="submit"></label>
+            <input type="submit" id="submit" name="submit">
+    </form>
+</body>
+</html>

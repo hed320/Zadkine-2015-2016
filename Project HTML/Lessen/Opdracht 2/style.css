@@ -1,0 +1,48 @@
+body {
+    margin: 0px auto;
+    width: 500px;
+}
+
+h1 {
+    background-color: blue;
+    margin: 0px;
+    padding-bottom: 25px;
+    color: white;
+}
+
+p {
+    margin: 0px;
+}
+
+.p1 {
+    background-color: red;
+    padding-bottom: 25px;
+}
+
+.main {
+    background-color: blue;
+    height: 500px;
+}
+
+.yellow {
+    background-color: yellow;
+    display: inline-block;
+    margin-left: 250px;
+    margin-top: 250px;
+    width: 250px;
+    height: 250px;
+}
+
+.p2 {
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+.paars {
+    background-color: purple;
+    position: fixed;
+    top: 450px;
+    left: 650px;
+    width: 125px;
+    height: 125px;
+}

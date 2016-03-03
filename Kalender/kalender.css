@@ -1,0 +1,42 @@
+body {
+    margin:0px auto;
+    width: 800px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#vorige {
+    float: left;
+}
+
+#volgende {
+    float: right;
+}
+
+#reset {
+    margin-left: 41%;
+}
+
+.huidig {
+    text-align: center;
+    display: block;
+    font-size: 20px;
+}
+
+.kalender {
+    width: 100%;
+}
+
+table, thead, td {
+    border: 1px solid black;
+    text-align: center;
+    word-wrap: break-word;
+    height: 40px;
+    width: 180px;
+}
+
+.clear {
+    clear: both;
+}

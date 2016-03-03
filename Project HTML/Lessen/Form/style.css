@@ -1,0 +1,45 @@
+body {
+    margin: 0px auto;
+    width: 400px;
+}
+
+header {
+    text-align: center;
+}
+
+fieldset {
+    background-color: lightblue;
+    margin: 0px;
+}
+
+input {
+    display: block;
+    border-radius: 5px;
+    margin: 2px;
+}
+
+select {
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.know {
+    width: 350px;
+}
+
+input[type="radio"] {
+    display: inline-block;
+}
+
+#premail {
+    display: inline-block;
+}
+
+#tos {
+    display: inline-block;
+}
+
+#submit {
+    margin: 0px auto;
+    margin-top: 5px;
+}

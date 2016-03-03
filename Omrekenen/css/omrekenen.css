@@ -1,0 +1,127 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12-dec-2015, 11:49:10
+    Author     : Bakker and Nijssen
+*/
+
+* {
+    font-family: sans-serif;
+    font-size: medium;
+}
+
+body {
+    border-style: double;
+    border-radius: 25px;
+    margin:0px auto;
+    background-color: #CCCCCC;
+}
+
+h1{
+    margin-top: 20px;
+    text-align: center;
+}
+
+fieldset {
+    display: inline-block;
+    float: left;
+    margin:0px;
+    margin-left: 2px;
+}
+
+textarea {
+    float: left;
+    background-color: burlywood;
+    border-radius: 5px;
+    min-width: 510px;
+    max-width: 900px;
+    min-height: 90px;
+    max-height: 120px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 2px;
+}
+
+div.tiny {
+    display: inline;
+    background-color: appworkspace;
+}
+
+.bookie {
+    float: right;
+    display: inline-block;
+}
+
+div.bullet {
+    display: block;
+    background-color: appworkspace;
+    border-radius: 15px;
+    border-style: solid;
+    min-width: 200px;
+    height: 40px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 25.6px;
+    margin: 5px;
+    padding-top: 10px;
+}
+
+div {
+    border-color: blue;
+    background-color: burlywood;
+    border-radius: 5px;
+}
+
+input, select {
+    border-color: blue;
+    background-color: appworkspace;
+    border-radius: 5px;
+}
+
+.antwoord {
+    min-width: 300px;
+    max-width: 700px;
+}
+
+#omrekenen {
+    float: left;
+    margin-top: 2px;
+    margin-left: 3px;
+}
+
+#toprefix {
+    width: 100px;
+}
+
+#toUnitEenheid {
+    width: 100px;
+}
+
+#fromOmrekenfactor {
+    width: 150px;
+}
+
+#toOmrekenfactor {
+    width: 150px;
+}
+
+.clear {
+    clear: both;
+}
+
+.left {
+    clear: left;
+}
+
+img {
+    width: 200px;
+    height: 40px;
+    align-items: center;
+}
+
+footer {
+    text-align: center;
+}
