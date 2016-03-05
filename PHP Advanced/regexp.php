@@ -33,7 +33,7 @@ if (preg_match_all("/restaurant/", $text, $match)) {
     echo "Het woord restaurant kom niet voor in de tekst<br>";
 }
 
-if (preg_match_all("/^In[^\n]*[\.]/m", $text, $match)) {
+if (preg_match_all("/In .*[\.]/m", $text, $match)) {
     echo "Zinnen die beginnen met \"In\"<br>";
     foreach ($match[0] as $value) {
         print $value."<br>";
