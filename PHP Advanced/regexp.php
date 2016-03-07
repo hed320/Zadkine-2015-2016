@@ -10,7 +10,7 @@ De rest van de resturants hebben een andere eigenaar.
 Nieuwe restaurants Standard Investments zegt met Burger King meer nieuwe restaurants te willen openen.
 \"Het is voor ons een kans om een goedlopende onderneming naar een hoger niveau te tillen\", aldus Hendrik Jan ten Have, partner bij Standard Investment.
 BurgerKing maakt wereldwijd al een sterke groei door.
-Waar de keten in 2009 nog 12.000 restaurants omvatte, is dat in 2014 toegenomen tot bijna 14.500";
+Waar de keten in 2009 nog 12.000 restaurants omvatte, is dat in 2014 toegenomen tot bijna 14.500.";
 $text = htmlentities($text);
 
 print $text."<br><br>";
@@ -45,7 +45,7 @@ if (preg_match_all("/^In .*/m", $text, $match)) {
 
 echo "<br>";
 
-if (preg_match_all("/.* investment\./im", $text, $match)) {
+if (preg_match_all("/.*\sinvestment\./im", $text, $match)) {
     echo "Zinnen die eindigen met \"investment\"<br>";
     foreach ($match[0] as $value) {
         print $value."<br>";
@@ -56,8 +56,8 @@ if (preg_match_all("/.* investment\./im", $text, $match)) {
 
 echo "<br>";
 
-if (preg_match_all("/\".*\"$/m", $text, $match)) {
-    echo "Zinnen die beginnen en eindigen met \"“\"<br>";
+if (preg_match_all("/^\" .*\"\s*/m", $text, $match)) {
+    echo "Zinnen die beginnen en eindigen met \"<br>";
     foreach ($match[0] as $value) {
         print $value."<br>";
     }

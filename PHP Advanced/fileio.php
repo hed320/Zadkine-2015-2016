@@ -1,7 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Ronald
- * Date: 7-3-2016
- * Time: 14:29
- */
+$filename = "files/FILE_IO.CSV";
+$filesize = filesize($filename);
+$filestream = fopen($filename, "r");
+$content = fread($filestream, $filesize);
+fclose($filestream);
+
+echo $content;
