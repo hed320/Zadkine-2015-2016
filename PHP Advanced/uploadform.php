@@ -13,10 +13,13 @@
 </html>
 
 <?php
+$target_dir = "files/";
+$target_file = $target_dir . basename($_FILES["file"]["name"]);
+
 if ( $_FILES != array() ) {
-    $fn = $_FILES["file"]["name"];
-    $target = "files/$fn";
-    move_uploaded_file($fn, $target) or die( "Could not copy file!");
+    // Moet tmp_name zijn met name werkt die niet.
+    $fn = $_FILES["file"]["tmp_name"];
+    move_uploaded_file($fn, $target_file) or die( "Could not copy file!");
 } else {
     die("No file specified!");
 }
@@ -35,5 +38,3 @@ if ( $_FILES != array() ) {
     </ul>
     </body>
 </html>
-
-<?php echo isset($_FILES['file']['name']) ? $_FILES['file']['name'] : "-"; ?>
