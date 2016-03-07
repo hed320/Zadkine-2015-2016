@@ -65,8 +65,4 @@ if (preg_match_all("/\".*\"$/m", $text, $match)) {
     echo "Geen zin begint en eindigt met \"<br>";
 }
 
-/*Bestaat het woord “Burger”
-- Hoevaak wordt “restaurant” genoemd
-- Welke zinnen beginnen met “In”
-- Welke zinnen eindigen op “investment”
-- Komt er een zin voor begint met “ en eindigt met “*/
+//Komt er een zin voor begint met “ en eindigt met “
