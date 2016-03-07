@@ -13,9 +13,9 @@
 </html>
 
 <?php
-if( $_FILES['file']['name'] != "" ) {
-    $fn = $_FILES['file']['name'];
-    copy( $_FILES['file']['name'], "files/$fn" ) or die( "Could not copy file!");
+if( $_FILES["file"]["name"] != "" ) {
+    $fn = $_FILES["file"]["name"];
+    copy( $_FILES["file"]["name"], "files/$fn" ) or die( "Could not copy file!");
 } else {
     die("No file specified!"); }
 ?>
