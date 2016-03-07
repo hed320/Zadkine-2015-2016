@@ -24,6 +24,8 @@ if (preg_match("/Burger/", $text)) {
     echo "Het woord Burger komt niet voor in de tekst<br>";
 }
 
+echo "<br>";
+
 if (preg_match_all("/restaurant/", $text, $match)) {
     $occ = count($match[0]);
     if ($occ != 0) {
@@ -33,7 +35,9 @@ if (preg_match_all("/restaurant/", $text, $match)) {
     echo "Het woord restaurant kom niet voor in de tekst<br>";
 }
 
-if (preg_match_all("/In .*[\.]/m", $text, $match)) {
+echo "<br>";
+
+if (preg_match_all("/^In .*[\.]/m", $text, $match)) {
     echo "Zinnen die beginnen met \"In\"<br>";
     foreach ($match[0] as $value) {
         print $value."<br>";
@@ -42,6 +46,16 @@ if (preg_match_all("/In .*[\.]/m", $text, $match)) {
     echo "Geen zin begint met \"In\"<br>";
 }
 
+echo "<br>";
+
+if (preg_match_all("/investment$/m", $text, $match)) {
+    echo "Zinnen die eindigen met \"investment\"<br>";
+    foreach ($match[0] as $value) {
+        print $value."<br>";
+    }
+} else {
+    echo "Geen zin eindigt met \"investment\"<br>";
+}
 /*Bestaat het woord “Burger”
 - Hoevaak wordt “restaurant” genoemd
 - Welke zinnen beginnen met “In”
