@@ -1,0 +1,3 @@
+Score van het spel 
+John Doe 	 10 punten
+Computer 	 7 punten 
