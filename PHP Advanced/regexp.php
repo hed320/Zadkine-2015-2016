@@ -12,7 +12,6 @@ Nieuwe restaurants Standard Investments zegt met Burger King meer nieuwe restaur
 BurgerKing maakt wereldwijd al een sterke groei door.
 Waar de keten in 2009 nog 12.000 restaurants omvatte, is dat in 2014 toegenomen tot bijna 14.500";
 $text = htmlentities($text);
-$char = htmlentities("“");
 
 print $text."<br><br>";
 
@@ -57,14 +56,15 @@ if (preg_match_all("/.* investment\./im", $text, $match)) {
 
 echo "<br>";
 
-if (preg_match_all("/“/im", $text, $match)) {
+if (preg_match_all("/\".*\"$/m", $text, $match)) {
     echo "Zinnen die beginnen en eindigen met \"“\"<br>";
     foreach ($match[0] as $value) {
         print $value."<br>";
     }
 } else {
-    echo "Geen zin begint en eindigt met \"$char\"<br>";
+    echo "Geen zin begint en eindigt met \"<br>";
 }
+
 /*Bestaat het woord “Burger”
 - Hoevaak wordt “restaurant” genoemd
 - Welke zinnen beginnen met “In”
