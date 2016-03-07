@@ -1,0 +1,10 @@
+Array
+(
+    [Ronald Nijssen] => Array
+        (
+            [leeftijd] => 19
+            [email] => naam@live.nl
+            [woonplaats] => Vlaardingen
+        )
+
+)
