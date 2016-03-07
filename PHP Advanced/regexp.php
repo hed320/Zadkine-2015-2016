@@ -6,12 +6,13 @@ Burger King Nederland bestaat uit 27 restaurants met in totaal veertienhonderd w
 Het concern is een franchisenemer van de Amerikaanse fastfoodketen.
 Onder andere de vestiging bij Schiphol, naar omzet de grootste vestiging van Burger King ter wereld, valt onder het bedrijf.
 In totaal zijn er zestig vestigingen van Burger King in Nederland.
-De rest van de restaurants hebben een andere eigenaar.
+De rest van de resturants hebben een andere eigenaar.
 Nieuwe restaurants Standard Investments zegt met Burger King meer nieuwe restaurants te willen openen.
-Het is voor ons een kans om een goedlopende onderneming naar een hoger niveau te tillen, aldus Hendrik Jan ten Have, partner bij Standard Investment.
+\"Het is voor ons een kans om een goedlopende onderneming naar een hoger niveau te tillen\", aldus Hendrik Jan ten Have, partner bij Standard Investment.
 BurgerKing maakt wereldwijd al een sterke groei door.
 Waar de keten in 2009 nog 12.000 restaurants omvatte, is dat in 2014 toegenomen tot bijna 14.500";
 $text = htmlentities($text);
+$char = htmlentities("“");
 
 print $text."<br><br>";
 
@@ -45,13 +46,24 @@ if (preg_match_all("/^In .*/m", $text, $match)) {
 
 echo "<br>";
 
-if (preg_match_all("/investment$/mi", $text, $match)) {
+if (preg_match_all("/.* investment\./im", $text, $match)) {
     echo "Zinnen die eindigen met \"investment\"<br>";
     foreach ($match[0] as $value) {
         print $value."<br>";
     }
 } else {
     echo "Geen zin eindigt met \"investment\"<br>";
+}
+
+echo "<br>";
+
+if (preg_match_all("/“/im", $text, $match)) {
+    echo "Zinnen die beginnen en eindigen met \"“\"<br>";
+    foreach ($match[0] as $value) {
+        print $value."<br>";
+    }
+} else {
+    echo "Geen zin begint en eindigt met \"$char\"<br>";
 }
 /*Bestaat het woord “Burger”
 - Hoevaak wordt “restaurant” genoemd
