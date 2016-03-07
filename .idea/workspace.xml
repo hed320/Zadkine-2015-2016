@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b42510f-9f40-4c1d-bedb-1f5f17988611" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PHP Advanced/fileiowrite2.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP Advanced/fileiowrite.php" afterPath="$PROJECT_DIR$/PHP Advanced/fileiowrite.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP Advanced/fileiowrite2.php" afterPath="$PROJECT_DIR$/PHP Advanced/fileiowrite2.php" />
     </list>
     <ignored path="favicon.ico" />
     <ignored path="index.php" />
@@ -168,8 +167,8 @@
         <option value="$PROJECT_DIR$/Project PHP-2/index.php" />
         <option value="$PROJECT_DIR$/PHP Advanced/regexp.php" />
         <option value="$PROJECT_DIR$/PHP Advanced/fileio.php" />
-        <option value="$PROJECT_DIR$/PHP Advanced/fileiowrite2.php" />
         <option value="$PROJECT_DIR$/PHP Advanced/fileiowrite.php" />
+        <option value="$PROJECT_DIR$/PHP Advanced/fileiowrite2.php" />
       </list>
     </option>
   </component>
@@ -518,7 +517,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457361332123</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Fileio read/write">
+      <created>1457362142132</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1457362142132</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">

@@ -1,13 +1,13 @@
 <?php
 $klassenlijst = array (
-    "naam" => array (
-        "leeftijd"=> 23 ,
+    "Ronald Nijssen" => array (
+        "leeftijd"=> 19 ,
         "email" => "naam@live.nl",
-        "woonplaats" => "rotterdam"
+        "woonplaats" => "Vlaardingen"
         )
     );
-$klassenlijst = print_r($klassenlijst);
 
+$klassenlijst = print_r($klassenlijst, true);
 $filename = "files/klassenlijst.txt" ;
 $filestream = fopen( $filename, "w") or die("Unable to open file!");
 fwrite( $filestream, $klassenlijst );
