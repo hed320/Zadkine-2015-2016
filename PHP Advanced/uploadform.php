@@ -23,7 +23,6 @@ if ( $_FILES != array() ) {
 } else {
     die("No file specified!");
 }
-print_r($_FILES);
 ?>
 
 <html>
