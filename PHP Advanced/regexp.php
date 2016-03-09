@@ -34,7 +34,7 @@ if (preg_match_all("/restaurant/", $text, $match)) {
 
 echo "<br>";
 
-if (preg_match_all("/^In .*/m", $text, $match)) {
+if (preg_match_all("/In .*/m", $text, $match)) {
     echo "Zinnen die beginnen met \"In\"<br>";
     foreach ($match[0] as $value) {
         print $value."<br>";
@@ -56,13 +56,11 @@ if (preg_match_all("/.*\sinvestment\./im", $text, $match)) {
 
 echo "<br>";
 
-if (preg_match_all("/^\" .*\"\s*/m", $text, $match)) {
+if (preg_match_all("/\".*\"/m", $text, $match)) {
     echo "Zinnen die beginnen en eindigen met \"<br>";
     foreach ($match[0] as $value) {
         print $value."<br>";
     }
 } else {
-    echo "Geen zin begint en eindigt met \"<br>";
+    echo "Geen zin met \"\"<br>";
 }
-
-//Komt er een zin voor begint met “ en eindigt met “
