@@ -26,7 +26,7 @@ while ($gebruikers = $getusers->fetch(PDO::FETCH_ASSOC)) {
 */
 
 try {
-    //Met externe variabel, prepare gebruiken.
+    //Met externe variabel, prepare/PDO variabel gebruiken zoals :id.
     $getusers = $verbinding->prepare("SELECT voornaam, achternaam, email FROM gebruikers WHERE idgebruikers = :id");
     $getusers->bindParam(":id", $_GET["id"]);
     $getusers->execute();

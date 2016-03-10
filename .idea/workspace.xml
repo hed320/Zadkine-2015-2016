@@ -11,7 +11,9 @@
     <ignored path="testmysql.php" />
     <ignored path="Template Power/" />
     <ignored path=".idea/dataSources.local.xml" />
-    <ignored path=".idea/" />
+    <manually-removed-from-ignored>
+      <directory path=".idea/" />
+    </manually-removed-from-ignored>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,13 +61,13 @@
       <file leaf-file-name="gebruikers.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Project PHP-2/php/gebruikers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.114349775">
-              <caret line="6" column="75" selection-start-line="6" selection-start-column="75" selection-end-line="6" selection-end-column="75" />
+            <state vertical-scroll-proportion="0.5336323">
+              <caret line="28" column="65" selection-start-line="28" selection-start-column="65" selection-end-line="28" selection-end-column="65" />
               <folding>
-                <marker date="1457601231261" expanded="true" signature="466:505" placeholder="SELECT * fro... " />
-                <marker date="1457601231261" expanded="true" signature="466:516" placeholder="SELECT voorn... gebruikers" />
-                <marker date="1457601231261" expanded="true" signature="882:938" placeholder="SELECT voorn... gebruikers" />
-                <marker date="1457601231261" expanded="true" signature="882:957" placeholder="SELECT voorn... gebruikers" />
+                <marker date="1457601308935" expanded="true" signature="466:505" placeholder="SELECT * fro... " />
+                <marker date="1457601308935" expanded="true" signature="466:516" placeholder="SELECT voorn... gebruikers" />
+                <marker date="1457601308935" expanded="true" signature="905:961" placeholder="SELECT voorn... gebruikers" />
+                <marker date="1457601308935" expanded="true" signature="905:980" placeholder="SELECT voorn... gebruikers" />
               </folding>
             </state>
           </provider>
@@ -337,7 +339,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -714,7 +716,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457599156986</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Updated gebruikers.php">
+      <created>1457601256988</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1457601256988</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -769,7 +777,8 @@
     <MESSAGE value="Updated regexp" />
     <MESSAGE value="Updated project 3" />
     <MESSAGE value="Updated project3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated project3" />
+    <MESSAGE value="Updated gebruikers.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated gebruikers.php" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1140,13 +1149,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Project PHP-2/php/gebruikers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.114349775">
-          <caret line="6" column="75" selection-start-line="6" selection-start-column="75" selection-end-line="6" selection-end-column="75" />
+        <state vertical-scroll-proportion="0.5336323">
+          <caret line="28" column="65" selection-start-line="28" selection-start-column="65" selection-end-line="28" selection-end-column="65" />
           <folding>
-            <marker date="1457601231261" expanded="true" signature="466:505" placeholder="SELECT * fro... " />
-            <marker date="1457601231261" expanded="true" signature="466:516" placeholder="SELECT voorn... gebruikers" />
-            <marker date="1457601231261" expanded="true" signature="882:938" placeholder="SELECT voorn... gebruikers" />
-            <marker date="1457601231261" expanded="true" signature="882:957" placeholder="SELECT voorn... gebruikers" />
+            <marker date="1457601308935" expanded="true" signature="466:505" placeholder="SELECT * fro... " />
+            <marker date="1457601308935" expanded="true" signature="466:516" placeholder="SELECT voorn... gebruikers" />
+            <marker date="1457601308935" expanded="true" signature="905:961" placeholder="SELECT voorn... gebruikers" />
+            <marker date="1457601308935" expanded="true" signature="905:980" placeholder="SELECT voorn... gebruikers" />
           </folding>
         </state>
       </provider>
