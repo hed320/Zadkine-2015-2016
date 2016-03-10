@@ -4,22 +4,16 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b42510f-9f40-4c1d-bedb-1f5f17988611" name="Default" comment="Updated regexp">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
+    <list default="true" id="9b42510f-9f40-4c1d-bedb-1f5f17988611" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project PHP-2/html/gebruikers.html" afterPath="$PROJECT_DIR$/Project PHP-2/html/gebruikers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project PHP-2/php/gebruikers.php" afterPath="$PROJECT_DIR$/Project PHP-2/php/gebruikers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project PHP-2/html/footer.html" afterPath="$PROJECT_DIR$/Project PHP-2/html/footer.html" />
     </list>
     <ignored path="favicon.ico" />
     <ignored path="index.php" />
     <ignored path="testmysql.php" />
     <ignored path="Template Power/" />
     <ignored path=".idea/dataSources.local.xml" />
-    <ignored path=".idea/workspace.xml" />
-    <manually-removed-from-ignored>
-      <directory path=".idea/" />
-    </manually-removed-from-ignored>
+    <ignored path=".idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,15 +58,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gebruikers.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gebruikers.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Project PHP-2/php/gebruikers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30493274">
+            <state vertical-scroll-proportion="-10.461538">
               <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
               <folding>
                 <marker date="1457597868458" expanded="true" signature="191:230" placeholder="SELECT * fro... " />
                 <marker date="1457597868458" expanded="true" signature="191:241" placeholder="SELECT voorn... gebruikers" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Project PHP-2/html/footer.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.36210763">
+              <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -165,7 +169,6 @@
         <option value="$PROJECT_DIR$/Project PHP-2/php/header.php" />
         <option value="$PROJECT_DIR$/Project PHP-2/php/aside.php" />
         <option value="$PROJECT_DIR$/Project PHP-2/php/content.php" />
-        <option value="$PROJECT_DIR$/Project PHP-2/html/footer.html" />
         <option value="$PROJECT_DIR$/Project PHP-2/html/header.html" />
         <option value="$PROJECT_DIR$/PHP Advanced/fileio.php" />
         <option value="$PROJECT_DIR$/PHP Advanced/fileiowrite2.php" />
@@ -175,6 +178,7 @@
         <option value="$PROJECT_DIR$/Project PHP-2/index.php" />
         <option value="$PROJECT_DIR$/Project PHP-2/php/gebruikers.php" />
         <option value="$PROJECT_DIR$/Project PHP-2/html/gebruikers.html" />
+        <option value="$PROJECT_DIR$/Project PHP-2/html/footer.html" />
       </list>
     </option>
   </component>
@@ -341,9 +345,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea/workspace.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="SQL Dialects" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -708,7 +712,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457596522193</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Updated project3">
+      <created>1457598246471</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1457598246471</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -762,7 +772,8 @@
     <MESSAGE value="Updated uploadform" />
     <MESSAGE value="Updated regexp" />
     <MESSAGE value="Updated project 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated project 3" />
+    <MESSAGE value="Updated project3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated project3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1105,14 +1116,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Project PHP-2/html/footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Project PHP-2/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.6153846">
@@ -1131,12 +1134,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Project PHP-2/php/gebruikers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30493274">
+        <state vertical-scroll-proportion="-10.461538">
           <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
           <folding>
             <marker date="1457597868458" expanded="true" signature="191:230" placeholder="SELECT * fro... " />
             <marker date="1457597868458" expanded="true" signature="191:241" placeholder="SELECT voorn... gebruikers" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project PHP-2/html/footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36210763">
+          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
