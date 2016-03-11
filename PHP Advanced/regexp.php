@@ -18,6 +18,8 @@ foreach ($text as $value) {
     print $value;
 }
 
+echo "<br><br>";
+
 if (preg_grep("/Burger/", $text)) {
     echo "Het woord Burger komt voor in de tekst<br>";
 } else {
@@ -26,10 +28,12 @@ if (preg_grep("/Burger/", $text)) {
 
 echo "<br>";
 
-if (preg_match_all("/restaurant/", $text, $match)) {
-    $occ = count($match[0]);
-    if ($occ != 0) {
-        echo "Het woord restaurant komt ".$occ." Keer voor in de tekst<br>";
+$match = preg_grep("/restaurant/", $text);
+
+if (count($match) != 0) {
+    echo "Het woord restaurant komt ".count($match)." keer voor in de tekst<br>";
+    foreach ($match as $value) {
+        print $value."<br>";
     }
 } else {
     echo "Het woord restaurant kom niet voor in de tekst<br>";
@@ -37,9 +41,11 @@ if (preg_match_all("/restaurant/", $text, $match)) {
 
 echo "<br>";
 
-if (preg_match_all("/In .*/m", $text, $match)) {
+$match = preg_grep("/In .*/m", $text);
+
+if (count($match) != 0) {
     echo "Zinnen die beginnen met \"In\"<br>";
-    foreach ($match[0] as $value) {
+    foreach ($match as $value) {
         print $value."<br>";
     }
 } else {
@@ -48,9 +54,11 @@ if (preg_match_all("/In .*/m", $text, $match)) {
 
 echo "<br>";
 
-if (preg_match_all("/.*\sinvestment\./im", $text, $match)) {
+$match = preg_grep("/.*\sinvestment\./im", $text);
+
+if (count($match) != 0) {
     echo "Zinnen die eindigen met \"investment\"<br>";
-    foreach ($match[0] as $value) {
+    foreach ($match as $value) {
         print $value."<br>";
     }
 } else {
@@ -59,9 +67,11 @@ if (preg_match_all("/.*\sinvestment\./im", $text, $match)) {
 
 echo "<br>";
 
-if (preg_match_all("/\".*\"/m", $text, $match)) {
+$match = preg_grep("/\".*\"/m", $text);
+
+if (count($match) != 0) {
     echo "Zinnen die beginnen en eindigen met \"<br>";
-    foreach ($match[0] as $value) {
+    foreach ($match as $value) {
         print $value."<br>";
     }
 } else {
