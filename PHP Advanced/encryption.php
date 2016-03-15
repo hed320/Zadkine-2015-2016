@@ -65,7 +65,11 @@ if ( $_FILES != array() ) {
     $encrypted = encrypt($content, $key);
     $decrypted = decrypt($encrypted, $key);
 
-    print "Encrypted text: <br>".$encrypted."<br><br>";
+    print "Encrypted text: <br>";
+    foreach (str_split($encrypted, 210) as $value) {
+        print $value."<br>";
+    }
+    print "<br>";
     print "Decrypted text: <br>".$decrypted."<br>";
     move_uploaded_file($fn, $target_file) or die( "Could not copy file!");
 } else {
