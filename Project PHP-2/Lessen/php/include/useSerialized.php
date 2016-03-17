@@ -1,7 +1,7 @@
 <?php
 //This is an example script for serialized templates
 
-include ('./class.TemplatePower.inc.php');
+include('./class.TemplatePower.inc.php');
 
 $tpl = new TemplatePower("./tpmain.stpl");
 $tpl->serializedBase()

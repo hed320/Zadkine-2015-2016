@@ -8,7 +8,7 @@
 //templates and run it only once. Do NOT run this script with each 
 //browser request!
 
-require_once( "./mod.TPLSerializer.inc.php" );
+require_once("./mod.TPLSerializer.inc.php");
 
 $stpl = new TPLSerializer( "./tpmain.tpl", "./tpmain.stpl" );
 $stpl->assignInclude("main", "./tptable.tpl");
