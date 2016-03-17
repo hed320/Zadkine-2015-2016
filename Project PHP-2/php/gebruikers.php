@@ -42,7 +42,11 @@ switch($actie){
         }
         break;
     case "wijzigen":
-        print "wijzigen";
+        if (isset($_GET["id"])) {
+            print "het klopt";
+        } else {
+            print "error";
+        }
         break;
     case "verwijderen":
         print "verwijderen";
@@ -50,7 +54,7 @@ switch($actie){
     default:
         try{
             // met externe variabel (:id), prepare gebruiken
-            $getUsers = $verbinding->prepare("SELECT voornaam, achternaam, email FROM gebruikers  ");
+            $getUsers = $verbinding->prepare("SELECT * FROM gebruikers ");
             $getUsers->execute();
         }catch(PDOException $error){
             echo '<pre>';
@@ -65,7 +69,8 @@ switch($actie){
             $content->assign(array(
                 "VOORNAAM" => $gebruikers['voornaam'],
                 "ACHTERNAAM" => $gebruikers['achternaam'],
-                "EMAIL" => $gebruikers['email']
+                "EMAIL" => $gebruikers['email'],
+                "ID" => $gebruikers["idgebruikers"]
             ));
         }
 }

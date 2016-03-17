@@ -6,9 +6,11 @@
         <!-- START BLOCK : ERROR -->
         <div class="alert alert-danger" role="alert">{ERROR}</div>
         <!-- END BLOCK : ERROR -->
+
         <!-- START BLOCK : SUCCESS -->
         <div class="alert alert-success" role="alert">{SUCCESS}</div>
         <!-- END BLOCK : SUCCESS -->
+
         <!-- START BLOCK : FORMULIER -->
         <form action="index.php?actie=toevoegen" method="post">
             <div class="form-group">
@@ -37,13 +39,14 @@
             </tr>
             </thead>
             <tbody>
+                <!-- START BLOCK : RIJ -->
                 <tr>
-                    <!-- START BLOCK : rij -->
-                    <td>{voornaam}</td>
-                    <td>{achternaam}</td>
-                    <td>{email}</td>
+                    <td>{VOORNAAM}</td>
+                    <td>{ACHTERNAAM}</td>
+                    <td>{EMAIL}</td>
+                    <td><a href="index.php?actie=wijzigen&id={ID}">Wijzigen</a></td>
                 </tr>
-                <!-- END BLOCK : rij -->
+                <!-- END BLOCK : RIJ -->
             </tbody>
         </table>
         <!-- END BLOCK : OVERZICHT -->
