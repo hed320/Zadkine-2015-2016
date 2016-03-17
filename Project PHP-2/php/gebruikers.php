@@ -19,12 +19,23 @@ if(isset($_GET['actie'])){
     $actie = NULL;
 }
 
-
 switch($actie){
     case "toevoegen":
         // html require werkt niet met sommige oude browsers dus ook dit gebruiken voor veiligheid.
         if(!empty($_POST["voornaam"]) and !empty($_POST["achternaam"]) and !empty($_POST["email"])){
-            // form moet gepost zijn
+            try {
+                $insert = $verbinding->prepare("INSERT INTO gebruikers SET voornaam = :voornaam, achternaam = :achternaam, email = :email");
+                $insert->bindParam(":voornaam", $_POST["voornaam"]);
+                $insert->bindParam(":achternaam", $_POST["achternaam"]);
+                $insert->bindParam(":email", $_POST["email"]);
+                $insert->execute();
+
+                $content->newBlock("SUCCESS");
+                $content->assign("SUCCESS", "De insert is gelukt");
+            } catch (PDOException $error){
+                $content->newBlock("ERROR");
+                $content->assign("ERROR", "De insert is niet gelukt. ".$error->getMessage());
+            }
         }else{
             // formulier
             $content->newBlock("FORMULIER");
