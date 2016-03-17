@@ -1,45 +1,60 @@
 <?php
+
 $content = new TemplatePower("html/gebruikers.html");
 $content->prepare();
 
-try {
-    $verbinding = new PDO("mysql:host=localhost;dbname=project3", "root", "");
+try
+{
+    $verbinding= new PDO('mysql:host=localhost;dbname=project3', 'root', '');
     $verbinding->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $error) {
-    echo "Regelnummer : ".$error->getLine()."<br>";
-    echo "Bestand : ".$error->getFile()."<br>";
-    echo "Foutmelding : ".$error->getMessage()."<br>";
+}
+catch(PDOException $error)
+{
+    echo $error->getMessage();
 }
 
-/*
-$getusers = $verbinding->query("SELECT voornaam, achternaam, email from gebruikers");
-
-while ($gebruikers = $getusers->fetch(PDO::FETCH_ASSOC)) {
-    $content->newBlock("rij");
-    $content->assign(array(
-        "voornaam" => $gebruikers["voornaam"],
-        "achternaam" => $gebruikers["achternaam"],
-        "email" => $gebruikers["email"]
-    ));
-}
-*/
-
-try {
-    //Met externe variabel, prepare/PDO variabel gebruiken zoals :id.
-    $getusers = $verbinding->prepare("SELECT voornaam, achternaam, email FROM gebruikers WHERE idgebruikers = :id");
-    $getusers->bindParam(":id", $_GET["id"]);
-    $getusers->execute();
-} catch(PDOException $error) {
-    echo "Regelnummer : ".$error->getLine()."<br>";
-    echo "Bestand : ".$error->getFile()."<br>";
-    echo "Foutmelding : ".$error->getMessage()."<br>";
+if(isset($_GET['actie'])){
+    $actie = $_GET['actie'];
+}else{
+    $actie = NULL;
 }
 
-while ($gebruikers = $getusers->fetch(PDO::FETCH_ASSOC)) {
-    $content->newBlock("rij");
-    $content->assign(array(
-        "voornaam" => $gebruikers["voornaam"],
-        "achternaam" => $gebruikers["achternaam"],
-        "email" => $gebruikers["email"]
-    ));
+
+switch($actie){
+    case "toevoegen":
+        // html require werkt niet met sommige oude browsers dus ook dit gebruiken voor veiligheid.
+        if(!empty($_POST["voornaam"]) and !empty($_POST["achternaam"]) and !empty($_POST["email"])){
+            // form moet gepost zijn
+        }else{
+            // formulier
+            $content->newBlock("FORMULIER");
+        }
+        break;
+    case "wijzigen":
+        print "wijzigen";
+        break;
+    case "verwijderen":
+        print "verwijderen";
+        break;
+    default:
+        try{
+            // met externe variabel (:id), prepare gebruiken
+            $getUsers = $verbinding->prepare("SELECT voornaam, achternaam, email FROM gebruikers  ");
+            $getUsers->execute();
+        }catch(PDOException $error){
+            echo '<pre>';
+            echo 'Regelnummer: '.$error->getLine().'<br>';
+            echo 'Bestand: '.$error->getFile().'<br>';
+            echo 'Foutmelding: '.$error->getMessage().'<br>';
+            echo '</pre>';
+        }
+        $content->newBlock("OVERZICHT");
+        while($gebruikers = $getUsers->fetch(PDO::FETCH_ASSOC)){
+            $content->newBlock("RIJ");
+            $content->assign(array(
+                "VOORNAAM" => $gebruikers['voornaam'],
+                "ACHTERNAAM" => $gebruikers['achternaam'],
+                "EMAIL" => $gebruikers['email']
+            ));
+        }
 }
