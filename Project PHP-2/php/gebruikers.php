@@ -45,7 +45,7 @@ switch($actie){
         if (isset($_GET["id"])) {
             print "het klopt";
         } else {
-            print "error";
+            print "Geen ID";
         }
         break;
     case "verwijderen":
