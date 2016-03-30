@@ -12,7 +12,7 @@
         <!-- END BLOCK : SUCCESS -->
 
         <!-- START BLOCK : FORMULIER -->
-        <form action="index.php?actie={ACTION}" method="post">
+        <form action="index.php?actie={ACTION}&pageid={PAGEID}" method="post">
             <div class="form-group">
                 <label for="voornaam">Voornaam</label>
                 <input type="text" class="form-control" id="voornaam" name="voornaam" value="{VOORNAAM}">
@@ -37,6 +37,8 @@
                 <th>Voornaam</th>
                 <th>Achternaam</th>
                 <th>Email</th>
+                <th>Wijzigen</th>
+                <th>Verwijderen</th>
             </tr>
             </thead>
             <tbody>
@@ -45,7 +47,8 @@
                     <td>{VOORNAAM}</td>
                     <td>{ACHTERNAAM}</td>
                     <td>{EMAIL}</td>
-                    <td><a href="index.php?actie=wijzigen&id={ID}">Wijzigen</a></td>
+                    <td><a href="index.php?actie=wijzigen&pageid={PAGEID}&id={ID}">Wijzigen</a></td>
+                    <td><a href="index.php?actie=verwijderen&pageid={PAGEID}&id={ID}">Verwijderen</a></td>
                 </tr>
                 <!-- END BLOCK : RIJ -->
             </tbody>

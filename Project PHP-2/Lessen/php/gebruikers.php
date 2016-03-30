@@ -3,15 +3,7 @@
 $content = new TemplatePower("html/gebruikers.html");
 $content->prepare();
 
-try
-{
-    $verbinding= new PDO('mysql:host=localhost;dbname=project3', 'root', '');
-    $verbinding->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch(PDOException $error)
-{
-    echo $error->getMessage();
-}
+include_once "include/database.php";
 
 if(isset($_GET['actie'])){
     $actie = $_GET['actie'];
@@ -31,14 +23,15 @@ switch($actie){
                 $insert->execute();
 
                 $content->newBlock("SUCCESS");
-                $content->assign("SUCCESS", "De insert is gelukt");
+                $content->assign("SUCCESS", "De gebruiker is toegevoegd");
             } catch (PDOException $error){
                 $content->newBlock("ERROR");
-                $content->assign("ERROR", "De insert is niet gelukt. ".$error->getMessage());
+                $content->assign("ERROR", "De gebruiker kon niet worden toegevoegd. ".$error->getMessage());
             }
         }else{
             // formulier
             $content->newBlock("FORMULIER");
+            $content->assign("PAGEID", $_GET["pageid"]);
             $content->assign("ACTION", "toevoegen");
         }
         break;
@@ -68,6 +61,7 @@ switch($actie){
             $wijziging = $wijzigen->fetch(PDO::FETCH_ASSOC);
             
             $content->newBlock("FORMULIER");
+            $content->assign("PAGEID", $_GET["pageid"]);
             $content->assign("ACTION", "wijzigen");
             $content->assign(array(
                 "VOORNAAM" => $wijziging["voornaam"],
@@ -78,7 +72,42 @@ switch($actie){
         }
         break;
     case "verwijderen":
-        print "verwijderen";
+        if(!empty($_POST['voornaam']) AND !empty($_POST['achternaam']) AND !empty($_POST['email'])) {
+            try {
+                $verwijder = $verbinding->prepare("DELETE FROM gebruikers WHERE idgebruikers = :id");
+                $verwijder->bindParam(":id", $_POST["id"]);
+
+                $verwijder->execute();
+
+                $content->newBlock("SUCCESS");
+                $content->assign("SUCCESS", "De gebruiker is verwijderd.");
+            } catch (PDOException $error) {
+                $content->newBlock("ERROR");
+                $content->assign("ERROR", "De gebruiker is niet verwijderd.");
+            }
+        } else {
+            try {
+                $gebruiker = $verbinding->prepare("SELECT * FROM gebruikers WHERE idgebruikers = :id");
+                $gebruiker->bindParam(":id", $_GET["id"]);
+
+                $gebruiker->execute();
+
+                $resultaat = $gebruiker->fetch(PDO::FETCH_ASSOC);
+
+                $content->newBlock("FORMULIER");
+                $content->assign("PAGEID", $_GET["pageid"]);
+                $content->assign("ACTION", "verwijderen");
+                $content->assign(array(
+                    "VOORNAAM" => $resultaat["voornaam"],
+                    "ACHTERNAAM" => $resultaat["achternaam"],
+                    "EMAIL" => $resultaat["email"],
+                    "ID" => $resultaat["idgebruikers"]
+                ));
+            } catch (PDOException $error) {
+                $content->newBlock("ERROR");
+                $content->assign("ERROR", "De gebruiker is niet gevonden.");
+            }
+        }
         break;
     default:
         try{
@@ -94,6 +123,7 @@ switch($actie){
         }
         $content->newBlock("OVERZICHT");
         while($gebruikers = $getUsers->fetch(PDO::FETCH_ASSOC)){
+            $content->assign("PAGEID", $_GET["pageid"]);
             $content->newBlock("RIJ");
             $content->assign(array(
                 "VOORNAAM" => $gebruikers['voornaam'],
