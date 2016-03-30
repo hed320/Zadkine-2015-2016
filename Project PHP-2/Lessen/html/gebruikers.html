@@ -12,19 +12,20 @@
         <!-- END BLOCK : SUCCESS -->
 
         <!-- START BLOCK : FORMULIER -->
-        <form action="index.php?actie=toevoegen" method="post">
+        <form action="index.php?actie={ACTION}" method="post">
             <div class="form-group">
                 <label for="voornaam">Voornaam</label>
-                <input type="text" class="form-control" id="voornaam" name="voornaam">
+                <input type="text" class="form-control" id="voornaam" name="voornaam" value="{VOORNAAM}">
             </div>
             <div class="form-group">
                 <label for="achternaam">Achternaam</label>
-                <input type="text" class="form-control" id="achternaam" name="achternaam">
+                <input type="text" class="form-control" id="achternaam" name="achternaam" value="{ACHTERNAAM}">
             </div>
             <div class="form-group">
                 <label for="email">E-mail</label>
-                <input type="email" class="form-control" id="email" name="email">
+                <input type="email" class="form-control" id="email" name="email" value="{EMAIL}">
             </div>
+            <input type="hidden" name="id" value="{ID}">
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
         <!-- END BLOCK : FORMULIER -->

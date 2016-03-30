@@ -39,13 +39,42 @@ switch($actie){
         }else{
             // formulier
             $content->newBlock("FORMULIER");
+            $content->assign("ACTION", "toevoegen");
         }
         break;
     case "wijzigen":
-        if (isset($_GET["id"])) {
-            print "het klopt";
+        if (!empty($_POST["voornaam"]) and !empty($_POST["achternaam"]) and !empty($_POST["email"])) {
+            try {
+            $wijzigen = $verbinding->prepare("UPDATE gebruikers SET voornaam = :voornaam, achternaam = :achternaam, email = :email WHERE idgebruikers = :id");
+
+            $wijzigen->bindParam(":id", $_POST["id"]);
+            $wijzigen->bindParam(":voornaam", $_POST["voornaam"]);
+            $wijzigen->bindParam(":achternaam", $_POST["achternaam"]);
+            $wijzigen->bindParam(":email", $_POST["email"]);
+
+            $wijzigen->execute();
+
+            $content->newBlock("SUCCESS");
+            $content->assign("SUCCESS", "De update is gelukt.");
+            } catch (PDOException $error) {
+                $content->newBlock("ERROR");
+                $content->assign("ERROR", "De update is fout gegaan.");
+            }
         } else {
-            print "Geen ID";
+            $wijzigen = $verbinding->prepare("SELECT * FROM gebruikers WHERE idgebruikers = :id");
+            $wijzigen->bindParam(":id", $_GET["id"]);
+            $wijzigen->execute();
+
+            $wijziging = $wijzigen->fetch(PDO::FETCH_ASSOC);
+            
+            $content->newBlock("FORMULIER");
+            $content->assign("ACTION", "wijzigen");
+            $content->assign(array(
+                "VOORNAAM" => $wijziging["voornaam"],
+                "ACHTERNAAM" => $wijziging["achternaam"],
+                "EMAIL" => $wijziging["email"],
+                "ID" => $wijziging["idgebruikers"]
+            ));
         }
         break;
     case "verwijderen":
