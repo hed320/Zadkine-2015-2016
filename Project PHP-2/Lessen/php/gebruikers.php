@@ -15,8 +15,7 @@ $content->assign('PAGEID', $pagina['idbestanden']);
 
 switch ($actie) {
 	case "toevoegen":
-		if (!empty($_POST['voornaam']) AND !empty($_POST['achternaam'])
-			AND !empty($_POST['email'])
+		if (!empty($_POST['voornaam']) AND !empty($_POST['achternaam'])	AND !empty($_POST['email'])
 		) {
 			// form moet gepost zijn
 			try {

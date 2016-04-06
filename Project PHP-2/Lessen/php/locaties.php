@@ -15,10 +15,25 @@ $content->assign('PAGEID', $pagina['idbestanden']);
 
 switch ($actie) {
 	case 'wijzigen':
+		if (!empty($_POST['naam']) AND !empty($_POST['adres'])	AND !empty($_POST['plaats'])) {
+			$wijzigen = $verbinding->prepare("UPDATE locatie SET  WHERE idlocatie = :idlocatie");
+		}
 
+		$wijzigen = $verbinding->prepare("SELECT * FROM locatie WHERE idlocatie = :idlocatie");
+		$wijzigen->bindParam(":idlocatie", $_GET["locatieid"]);
+		$wijzigen->execute();
 
-		$wijzigen = $verbinding;
+		$locatie = $wijzigen->fetch(PDO::FETCH_ASSOC);
+
 		$content->newBlock('FORMULIER');
+		$content->assign('ACTION', "wijzigen");
+		$content->assign('PAGEID', $pagina['idbestanden']);
+		$content->assign([
+			"ID" => $locatie["idlocatie"],
+			"NAAM" => $locatie["naam"],
+			"ADRES" => $locatie["adres"],
+			"PLAATS" => $locatie["plaats"]
+		]);
 		break;
 	case 'toevoegen':
 
