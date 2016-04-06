@@ -30,6 +30,5 @@ if (isset($_GET['pageid'])) {
 	include_once("php/content.php");
 }
 
-
 include_once("php/aside.php");
 include_once("php/footer.php");

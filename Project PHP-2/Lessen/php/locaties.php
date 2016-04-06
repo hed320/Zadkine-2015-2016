@@ -51,10 +51,4 @@ switch ($actie) {
 				'PLAATS' => $locatie['plaats']
 			]);
 		}
-
-
-
-
-
-
 }
