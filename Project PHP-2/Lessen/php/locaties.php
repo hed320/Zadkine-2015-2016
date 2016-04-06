@@ -11,7 +11,15 @@ if (isset($_GET['actie'])) {
 	$actie = NULL;
 }
 
+$content->assign('PAGEID', $pagina['idbestanden']);
+
 switch ($actie) {
+	case 'wijzigen':
+
+
+		$wijzigen = $verbinding;
+		$content->newBlock('FORMULIER');
+		break;
 	case 'toevoegen':
 
 		if (!isset($_POST['naam']) && !isset($_POST['adres']) && !isset($_POST['plaats'])) {

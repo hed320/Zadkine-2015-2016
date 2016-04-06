@@ -11,6 +11,8 @@ if (isset($_GET['actie'])) {
 	$actie = NULL;
 }
 
+$content->assign('PAGEID', $pagina['idbestanden']);
+
 switch ($actie) {
 	case "toevoegen":
 		if (!empty($_POST['voornaam']) AND !empty($_POST['achternaam'])
