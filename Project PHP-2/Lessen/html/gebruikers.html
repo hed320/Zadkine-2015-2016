@@ -1,26 +1,60 @@
+
+
 <div class="row">
 
     <div class="col-sm-8 blog-main">
+        <!-- START BLOCK : ERROR -->
+        <div class="alert alert-danger" role="alert">{ERROR}</div>
+        <!-- END BLOCK : ERROR -->
 
-		<h1>{TITLE}</h1>
+        <!-- START BLOCK : SUCCES -->
+        <div class="alert alert-success" role="alert">{SUCCES}</div>
+        <!-- END BLOCK : SUCCES -->
 
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Voornaam</th>
-					<th>Tussenvoegsel</th>
-					<th>Achternaam</th>
-				</tr>
-			</thead>
-			<tbody>
-			<!-- START BLOCK : GEBRUIKERS -->
-				<tr>
-					<td>{VOORNAAM}</td>
-					<td>{TUSSENV}</td>
-					<td>{ACHTERNAAM}</td>
-				</tr>
-			<!-- END BLOCK : GEBRUIKERS -->
-			</tbody>
-		</table>
+        <!-- START BLOCK : FORMULIER -->
+        <form action="index.php?pageid={PAGEID}&actie={ACTION}" method="post">
+            <div class="form-group">
+                <label for="voornaam">Voornaam</label>
+                <input type="text" class="form-control" id="voornaam" name="voornaam" value="{VOORNAAM}">
+            </div>
+            <div class="form-group">
+                <label for="achternaam">Achternaam</label>
+                <input type="text" class="form-control" id="achternaam" name="achternaam" value="{ACHTERNAAM}">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="{EMAIL}">
+            </div>
+			<input type="hidden" name="id" value="{ID}">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <!-- END BLOCK : FORMULIER -->
+
+        <!-- START BLOCK : OVERZICHT -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Voornaam</th>
+                    <th>Achternaam</th>
+                    <th>Email</th>
+                    <th>Wijzigen</th>
+					<th>Verwijderen</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- START BLOCK : RIJ -->
+                <tr>
+                    <td>{VOORNAAM}</td>
+                    <td>{ACHTERNAAM}</td>
+                    <td>{EMAIL}</td>
+                    <td><a href="index.php?pageid={PAGEID}&actie=wijzigen&id={ID}">Wijzigen</a></td>
+					<td><a href="index.php?pageid={PAGEID}&actie=verwijderen&id={ID}">Verwijderen</a></td>
+                </tr>
+                <!-- END BLOCK : RIJ -->
+            </tbody>
+
+
+        </table>
+        <!-- END BLOCK : OVERZICHT -->
 
     </div><!-- /.blog-main -->

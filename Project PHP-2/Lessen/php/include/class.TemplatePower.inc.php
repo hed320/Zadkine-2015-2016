@@ -396,7 +396,7 @@ class TemplatePower extends TemplatePowerParser
     protected $prepared;
 
     /**
-     * TemplatePower::TemplatePower()
+     * TemplatePower::__construct()
      *
      * @param $tpl_file
      * @param $type
@@ -404,10 +404,9 @@ class TemplatePower extends TemplatePowerParser
 	 *
 	 * @access public
      */
-    public function TemplatePower($tpl_file='', $type=T_BYFILE)
+    public function __construct($tpl_file='', $type=T_BYFILE)
     {
         parent::__contruct($tpl_file, $type);
-
         $this->prepared       = false;
         $this->showUnAssigned = false;
         $this->serialized     = false;  //added: 26 April 2002
