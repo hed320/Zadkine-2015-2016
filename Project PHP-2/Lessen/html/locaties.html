@@ -4,6 +4,19 @@
 
 	<div class="col-sm-8 blog-main">
 
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="index.php?pageid={PAGEID}">Overzicht</a></li>
+						<li><a href="index.php?pageid={PAGEID}&actie=toevoegen">Toevoegen</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+
 		<!-- START BLOCK : ERROR -->
 		<div class="alert alert-danger" role="alert">{ERROR}</div>
 		<!-- END BLOCK : ERROR -->
@@ -38,6 +51,7 @@
 				<th>Naam</th>
 				<th>Adres</th>
 				<th>Plaats</th>
+				<th>Wijzigen</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -46,6 +60,7 @@
 				<td>{NAAM}</td>
 				<td>{ADRES}</td>
 				<td>{PLAATS}</td>
+				<td><a href="index.php?pageid={PAGEID}&actie=wijzigen&locatieid={IDLOCATIE}">Wijzigen</a></td>
 			</tr>
 			<!-- END BLOCK : RIJ -->
 			</tbody>
