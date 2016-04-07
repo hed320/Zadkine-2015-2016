@@ -20,8 +20,11 @@ if (!empty($_POST["email"]) and !empty($_POST["wachtwoord"])) {
         $info = $getinfo->fetch(PDO::FETCH_ASSOC);
 
         if (password_verify($_POST["wachtwoord"], $info["wachtwoord"])) {
+            $_SESSION["userid"] = $info["idgebruikers"];
+            $_SESSION["role"] = $info["role_idrole"];
             $content->newBlock("SUCCES");
             $content->assign("SUCCES", "Je bent ingelogd");
+            var_dump($_SESSION);
         } else {
             $content->newBlock("ERROR");
             $content->assign("ERROR", "Je login klopt niet");
