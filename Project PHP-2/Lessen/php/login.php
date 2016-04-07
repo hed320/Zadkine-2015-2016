@@ -7,7 +7,7 @@ if (!empty($_POST["email"]) and !empty($_POST["wachtwoord"])) {
         'cost' => 12,
     ];
     $wachtwoord = password_hash($_POST["wachtwoord"], PASSWORD_BCRYPT, $options);
-    var_dump($wachtwoord);
+    
     $check = $verbinding->prepare("SELECT count(*) FROM gebruikers WHERE email = :email AND wachtwoord = :wachtwoord");
     $check->bindParam(":email", $_POST['email']);
     $check->bindParam(":wachtwoord", $wachtwoord);
