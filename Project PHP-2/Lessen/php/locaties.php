@@ -129,10 +129,4 @@ switch ($actie) {
 				'IDLOCATIE' => $locatie['idlocatie']
 			]);
 		}
-
-
-
-
-
-
 }
