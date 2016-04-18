@@ -1,5 +1,4 @@
 <?php
-
 $content = new TemplatePower("html/gebruikers.html");
 $content->prepare();
 
@@ -15,7 +14,8 @@ $content->assign('PAGEID', $pagina['idbestanden']);
 
 switch ($actie) {
 	case "toevoegen":
-		if (!empty($_POST['voornaam']) AND !empty($_POST['achternaam'])	AND !empty($_POST['email'])
+		if (!empty($_POST['voornaam']) AND !empty($_POST['achternaam'])
+			AND !empty($_POST['email'])
 		) {
 			// form moet gepost zijn
 			try {
@@ -33,6 +33,7 @@ switch ($actie) {
 				$content->newBlock("ERROR");
 				$content->assign("ERROR", "De insert is niet gelukt. " . $error->getMessage());
 			}
+
 
 		} else {
 			// formulier
@@ -72,6 +73,7 @@ switch ($actie) {
 
 			$wijziging = $wijzigen->fetch(PDO::FETCH_ASSOC);
 
+
 			$content->newBlock("FORMULIER");
 			$content->assign('PAGEID', $pagina['idbestanden']);
 			$content->assign('ACTION', 'wijzigen');
@@ -90,6 +92,7 @@ switch ($actie) {
 				$verwijder->bindParam(':id', $_POST['id']);
 
 				$verwijder->execute();
+
 
 				$content->newBlock("SUCCES");
 				$content->assign("SUCCES", "De gebruiker is verwijderd");
@@ -120,6 +123,8 @@ switch ($actie) {
 				$content->assign("ERROR", "De gebruiker is niet gevonden");
 			}
 		}
+
+
 		break;
 	default:
 		try {
