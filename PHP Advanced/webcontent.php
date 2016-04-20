@@ -1,0 +1,22 @@
+<?php
+echo "PHP_SELF: ".$_SERVER["PHP_SELF"]."<br>";
+echo "GATEWAY_INTERFACE: ".$_SERVER["GATEWAY_INTERFACE"]."<br>";
+echo "SERVER_ADDRES: ".$_SERVER["SERVER_ADDR"]."<br>";
+echo "DOCUMENT ROOT: ".$_SERVER["DOCUMENT_ROOT"]."<br>";
+echo "HTTP_ACCEPT_CHARSET: ".$_SERVER["HTTP_ACCEPT_CHARSET"]."<br>";
+echo "HTTP_USER_AGENT: ".$_SERVER["HTTP_USER_AGENT"]."<br>";
+echo "REMOTE_ADDRES: ".$_SERVER["REMOTE_ADDR"]."<br>";
+echo "SCRIPT_FILENAME: ".$_SERVER["SCRIPT_FILENAME"]."<br>";
+echo "FILES: ";
+print_r($_FILES);
+echo "<br>";
+echo "GET: ";
+print_r($_GET);
+echo "<br>";
+echo "COOKIE: ";
+print_r($_COOKIE);
+echo "<br>";
+echo "REQUEST: ";
+print_r($_REQUEST);
+echo "<br>";
+echo "PHP_SELF: ".$_SERVER["PHP_SELF"]."<br>";
