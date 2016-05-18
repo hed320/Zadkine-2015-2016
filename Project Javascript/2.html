@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2. Variabelen</title>
+    <script>
+        document.write("1<br>");
+        document.write("2x is niet een toegestane variable naam hij begint met een letter.<br>");
+        document.write("x-kwadraat is niet toegestaan vanwege -<br>");
+        document.write("(x) is niet toegestaan vawege de haakjes.<br>");
+        document.write("x^2 is niet toegestaan vanwege ^<br>");
+        document.write("<br>2<br>");
+        var a = 10;
+        var b = 5;
+        var c = 2;
+        document.write("a = " + a + " b = " + b + " c = " + c + "<br>");
+        a += b;
+        b += c;
+        c += a;
+        document.write("a = " + a + " b = " + b + " c = " + c + "<br>");
+        document.write("<br>3<br>");
+        var totBoeken = prompt("Hoeveel boeken zijn er verkocht?");
+        var boekPrijs = prompt("Hoe duur is een boek?");
+        var inkPrijs = prompt("Hoeveel kost het om een boek in te kopen?");
+        document.write("Winst boeken winkel €" + (totBoeken * (boekPrijs - inkPrijs)) + "<br>");
+        document.write("<br>4<br>");
+        document.write("4. a = 12<br>");
+        document.write("5. b = 6<br>");
+        document.write("6. c = 2<br>");
+        document.write("<br>5<br>");
+        var tekst = "Vaak wordt gezegd:<br>\"Je bent nooit te oud om te leren\".<br>Da's nou nog eens een wijze spreuk!";
+        document.write(tekst + "<br>");
+        document.write("<br>6<br>");
+        var naam = prompt("Wat is je naam?");
+        var leeftijd = prompt("Wat is je leeftijd?");
+        alert("Hoi,\nik ben " + (leeftijd - 19) + " jaar ouder dan jij!");
+    </script>
+</head>
+<body>
+
+</body>
+</html>
