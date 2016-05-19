@@ -142,6 +142,35 @@
         while (knikkers >= 0) {
             document.write(gooi++ + " knikkers opgegooid, nog " + (knikkers--) + " in mijn zak.<br>")
         }
+
+        document.write("<br>4.9<br>");
+        var knikkers = 9;
+        var gooi = 1;
+        do {
+            document.write(gooi++ + " knikkers opgegooid, nog " + (knikkers--) + " in mijn zak.<br>")
+        } while (knikkers >= 0)
+
+        document.write("<br>4.10<br>");
+        var i = 0;
+        while (i > -42) {
+            //alert("Het kwadraat van " + i + " is: " + i*i);
+            i--;
+        }
+
+        document.write("<br>4.11<br>");
+        function f(x) {
+            return x*x-2*x+15;
+        }
+
+        for (x = -5; x < 6; x++) {
+            //alert("Op x = " + x + " is y: " +f(x));
+        }
+
+        document.write("<br>4.12<br>");
+        document.write("Tweede stuk code is fout omdat bij elke iteratie er opnieuw een prompt wordt gemaakt i.p.v een keer voordat de loop begint.")
+
+        document.write("<br>4.13<br>");
+        document.write("i = 100 na het script");
     </script>
 </head>
 <body>
