@@ -4,7 +4,144 @@
     <meta charset="UTF-8">
     <title>4. Loops en condities programmeren</title>
     <script>
+        function res() {
+            var a = parseInt(prompt("Getal 1?"));
+            var keuze = prompt("+, -, * of /");
+            var b = parseInt(prompt("Getal 2?"));
+            if (keuze == "+") {
+                return a + b;
+            } else if (keuze == "-") {
+                return a - b;
+            } else if (keuze == "*") {
+                return a * b;
+            } else if (keuze == "/") {
+                return a / b;
+            } else {
+                document.write("Geen geldige keuze.")
+            }
+        }
+        //document.write(res());
 
+        function res() {
+            var a = parseInt(prompt("Getal 1?"));
+            var keuze = prompt("+, -, * of /");
+            var b = parseInt(prompt("Getal 2?"));
+            if (isNaN(a) || isNaN(b)) {
+                return "Een van de getallen is niet een getal."
+            } else {
+                if (keuze == "+") {
+                    return a + b;
+                } else if (keuze == "-") {
+                    return a - b;
+                } else if (keuze == "*") {
+                    return a * b;
+                } else if (keuze == "/") {
+                    return a / b;
+                } else {
+                    return "Geen geldige keuze."
+                }
+            }
+        }
+        //document.write(res());
+
+        document.write("4.3<br>");
+        document.write("A false<br>");
+        document.write("B true<br>");
+        document.write("C true<br>");
+        document.write("D false<br>");
+        document.write("E true<br>");
+        document.write("F false<br>");
+        document.write("G true<br>");
+        document.write("H false<br>");
+        document.write("I true<br>");
+        document.write("J false<br>");
+        document.write("K true<br>");
+
+        document.write("<br>4.4<br>")
+        function a() {
+            document.write("A");
+            return true;
+        }
+
+        function b() {
+            document.write("B");
+            return false;
+        }
+
+        if (a() && b()) {
+            document.write("<br>A && B");
+        }
+        document.write("<br>");
+
+        if (a() || b()) {
+            document.write("<br>A || B");
+        }
+        document.write("<br>");
+
+        if (b() && a()) {
+            document.write("<br>B && A");
+        }
+        document.write("<br>");
+
+        if (b() || a()) {
+            document.write("<br>B || A");
+        }
+        document.write("<br>");
+
+        document.write("<br>4.5<br>")
+        var getal = prompt("Getal tussen 1/10");
+        switch (getal) {
+            default:
+                for (getal; getal >= 0; getal--) {
+                    document.write(getal + "<br>");
+                }
+                break;
+        }
+
+        document.write("<br>4.6<br>");
+        function res() {
+            var a = parseInt(prompt("Getal 1?"));
+            var keuze = prompt("+, -, * of /");
+            var b = parseInt(prompt("Getal 2?"));
+            if (isNaN(a) || isNaN(b)) {
+                return "Een van de getallen is niet een getal."
+            } else {
+                switch (keuze) {
+                    case "+":
+                        return a + b;
+                        break;
+                    case "-":
+                        return a - b;
+                        break;
+                    case "*":
+                        return a * b;
+                        break;
+                    case "/":
+                        return a / b;
+                        break;
+                    default:
+                        return "Geen geldige keuze.";
+                        break;
+                }
+            }
+        }
+        //document.write(res());
+
+        document.write("<br>4.7<br>");
+        var getal = prompt("Getal tussen 1/10");
+        while (!(getal >= 0) && !(getal <= 10)) {
+            var getal = prompt("Getal tussen 1/10");
+        }
+        while (getal >= 0 && getal <= 10) {
+            document.write(getal-- + "<br>");
+        }
+
+        document.write("<br>4.8<br>");
+        var knikkers = 9;
+        var gooi = 1;
+        while (knikkers >= 0) {
+            document.write(gooi++ + " knikkers opgegooid, nog " + (knikkers--) + " in mijn zak.<br>")
+        }
     </script>
 </head>
 <body>
