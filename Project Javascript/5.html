@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5. Hallo wereld</title>
+    <script>
+        function hallo() {
+            var keer = prompt("Hoe vaak moet het bericht geprint worden of type \"stop\"?");
+            if (keer > 0) {
+                for (i = 1; i <= keer; i++) {
+                    //alert("Hallo wereld, voor de " + i + "e keer!")
+                    document.write("Hallo wereld, voor de " + i + "e keer!<br>")
+                }
+                hallo();
+            } else if (keer == "stop") {
+
+            }
+        }
+        hallo();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
