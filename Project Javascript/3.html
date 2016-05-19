@@ -4,7 +4,57 @@
     <meta charset="UTF-8">
     <title>3. Functies</title>
     <script>
+        function product() {
+            var a = prompt("Getal 1?");
+            var b = prompt("Getal 2?", a);
+            return a * b;
+        }
+        //alert(product());
 
+        function som() {
+            var a = prompt("Getal 1?");
+            var b = prompt("Getal 2?", a);
+            return parseInt(a) + parseInt(b);
+        }
+        //document.write(som());
+
+        function som(a, b) {
+            return parseInt(a) + parseInt(b);
+        }
+        //alert(som(prompt("Getal 1?"), prompt("Getal 2?")));
+
+        function kwadraat(a) {
+            return a * a;
+        }
+
+        function pythagoras(a, b) {
+            return Math.sqrt(kwadraat(a) + kwadraat(b))
+        }
+        //document.write(pythagoras(prompt("Getal 1?"), kwadraat(prompt("Getal 2?"))));
+
+        var a = 0;
+        function das(b) {
+            var c = 10;
+            document.write(parseInt(a) + parseInt(b) + parseInt(c) + "<br>");
+        }
+        //das(4);
+        //das(30);
+
+        document.write("3.5<br>");
+        document.write("[A] a = 12<br>");
+        document.write("[B] a = 12, b = 16<br>");
+        document.write("[C] a = 12<br>");
+        document.write("[D] a = 12<br>");
+        document.write("alert = 38<br>");
+
+
+        document.write("<br>3.6<br>")
+        var i = 1;
+        function it() {
+            document.write("Ik ben " + i++ + " keer aangeroepen!<br>");
+            //i++;
+        }
+        //it();
     </script>
 </head>
 <body>
