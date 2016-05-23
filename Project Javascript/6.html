@@ -3,11 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>6. Events</title>
-    <script>
-
-    </script>
 </head>
 <body>
     <button onclick="document.write('Hello World!')">Hallo</button>
+    <div id="world" style="width: 100px; height: 50px; background-color: red"><p id="tekst">Hello world!</p></div>
+    <script>
+        var div = document.getElementById("world");
+        var p = document.getElementById("tekst");
+        div.onmouseover = function() {div.style.fontStyle = "italic"};
+        div.onmouseout = function() {div.style.fontStyle = "normal"};
+        p.onclick = function() {
+            if (p.innerHTML == "Hello world!") {
+                p.innerHTML = "Hallo wereld!";
+            } else {
+                p.innerHTML = "Hello world!";
+            }
+        };
+    </script>
+    <div id="1">Iets</div>
+    <div id="2">Iets</div>
+    <div id="3">Iets</div>
+    <div id="4">Iets</div>
+    <div id="5">Iets</div>
 </body>
 </html>
