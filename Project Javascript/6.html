@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>6. Events</title>
+    <script>
+        function bold(id) {
+            var div = document.getElementById(id, event);
+            if (event.shiftKey) {
+                div.style.fontWeight = "normal"
+            } else {
+                div.style.fontWeight = "bold"
+            }
+        }
+    </script>
 </head>
 <body>
+    <p>6.1</p>
     <button onclick="document.write('Hello World!')">Hallo</button>
+    <p>6.3</p>
     <div id="world" style="width: 100px; height: 50px; background-color: red"><p id="tekst">Hello world!</p></div>
     <script>
         var div = document.getElementById("world");
@@ -20,10 +32,29 @@
             }
         };
     </script>
-    <div id="1">Iets</div>
-    <div id="2">Iets</div>
-    <div id="3">Iets</div>
-    <div id="4">Iets</div>
-    <div id="5">Iets</div>
+    <p>6.4</p>
+    <div id="1" onclick="bold(this.id, event)">Iets</div>
+    <div id="2" onclick="bold(this.id, event)">Iets</div>
+    <div id="3" onclick="bold(this.id, event)">Iets</div>
+    <div id="4" onclick="bold(this.id, event)">Iets</div>
+    <div id="5" onclick="bold(this.id, event)">Iets</div>
+    <p>6.5</p>
+    <div id="key"></div>
+    <script>
+        document.addEventListener("keydown", function() {
+            var div = document.getElementById("key")
+            div.innerHTML = "Laatst ingedrukte toets code: " + event.keyCode
+        })
+    </script>
+    <p>6.6</p>
+    <div id="mouse"></div>
+    <script>
+        document.addEventListener("mousemove", function() {
+            var div = document.getElementById("mouse")
+            var locx = event.clientX;
+            var locy = event.clientY
+            div.innerHTML = "Muis coördinaten: X" + locx + " Y " + locy
+        })
+    </script>
 </body>
 </html>
