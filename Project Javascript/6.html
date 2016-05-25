@@ -42,7 +42,7 @@
     <div id="key"></div>
     <script>
         document.addEventListener("keydown", function() {
-            var div = document.getElementById("key")
+            var div = document.getElementById("key");
             div.innerHTML = "Laatst ingedrukte toets code: " + event.keyCode
         })
     </script>
@@ -50,9 +50,9 @@
     <div id="mouse"></div>
     <script>
         document.addEventListener("mousemove", function() {
-            var div = document.getElementById("mouse")
+            var div = document.getElementById("mouse");
             var locx = event.clientX;
-            var locy = event.clientY
+            var locy = event.clientY;
             div.innerHTML = "Muis coördinaten: X" + locx + " Y " + locy
         })
     </script>
