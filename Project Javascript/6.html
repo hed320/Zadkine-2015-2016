@@ -18,7 +18,7 @@
     <p>6.1</p>
     <button onclick="document.write('Hello World!')">Hallo</button>
     <p>6.3</p>
-    <div id="world" style="width: 100px; height: 50px; background-color: red"><p id="tekst">Hello world!</p></div>
+    <div id="world" style="display: inline-block; background-color: red"><p id="tekst">Hello world!</p></div>
     <script>
         var div = document.getElementById("world");
         var p = document.getElementById("tekst");
@@ -33,11 +33,11 @@
         };
     </script>
     <p>6.4</p>
-    <div id="1" onclick="bold(this.id, event)">Iets</div>
-    <div id="2" onclick="bold(this.id, event)">Iets</div>
-    <div id="3" onclick="bold(this.id, event)">Iets</div>
-    <div id="4" onclick="bold(this.id, event)">Iets</div>
-    <div id="5" onclick="bold(this.id, event)">Iets</div>
+    <div id="1" onclick="bold(this.id, event)" style="background-color: red; display: inline-block">Iets</div>
+    <div id="2" onclick="bold(this.id, event)" style="background-color: blue; display: inline-block">Iets</div>
+    <div id="3" onclick="bold(this.id, event)" style="background-color: yellow; display: inline-block">Iets</div>
+    <div id="4" onclick="bold(this.id, event)" style="background-color: green; display: inline-block">Iets</div>
+    <div id="5" onclick="bold(this.id, event)" style="background-color: purple; display: inline-block">Iets</div>
     <p>6.5</p>
     <div id="key"></div>
     <script>
