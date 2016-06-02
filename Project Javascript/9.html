@@ -5,6 +5,322 @@
     <title>9. Globale objecten</title>
 </head>
 <body>
+    <script>
+        function timer(tijd) {
+            time = setTimeout(function() {alert("Timer afgelopen");},tijd * 1000);
+        }
+         function stoptimer() {
+             clearTimeout(time);
+         }
+        function extra(details) {
+            var hide = document.getElementById("gegevens");
+            if (hide.style.display == "none") {
+                hide.style.display = "inline";
+            } else {
+                hide.style.display = "none";
+            }
 
+            if (details.innerHTML == "Geef details weer") {
+                details.innerHTML = "Verberg details"
+            } else {
+                details.innerHTML = "Geef details weer"
+            }
+        }
+        function insertname(div) {
+            var name = prompt("Naam?");
+            if (div.innerHTML == "Klik hier") {
+                div.innerHTML = name
+            } else {
+                var name = div.innerHTML + ", " + name;
+                div.innerHTML = name;
+            }
+        }
+        function over(item) {
+            item.style.backgroundColor = "black"
+            item.innerHTML = parseInt(item.innerHTML) + 1
+        }
+        function exit(item) {
+            item.style.backgroundColor = "white"
+
+        }
+        var turn = 0;
+        function bke(item) {
+            if (item.innerHTML == "") {
+                if (turn == 0) {
+                    item.innerHTML = "X";
+                    turn = 1;
+                } else {
+                    item.innerHTML = "O";
+                    turn = 0;
+                }
+            }
+        }
+        document.addEventListener("keydown", function(event) {
+            var zwart = document.getElementById("zwart");
+            var row = zwart.parentNode.rowIndex;
+            var cell = zwart.cellIndex;
+            function clear(item) {
+                item.style.backgroundColor = "white";
+                item.id = "";
+            }
+            function move(row, cell) {
+                var table = document.getElementById("move");
+                console.log(cell + " " + table.rows[row].cells.length);
+                if ((row <= table.rows.length - 1 && row >= 0) && (cell <= table.rows[row].cells.length - 1 && cell >= 0)) {
+                    clear(zwart);
+                    console.log(row + " " + cell);
+                    table.rows[row].cells[cell].style.backgroundColor = "black";
+                    table.rows[row].cells[cell].id = "zwart";
+                }
+            }
+            if (event.keyCode == 87) {
+                move(row - 1, cell);
+            } else if (event.keyCode == 83) {
+                move(row + 1, cell);
+            } else if (event.keyCode == 65) {
+                move(row, cell - 1);
+            } else if (event.keyCode == 68) {
+                move(row, cell + 1);
+            }
+        })
+
+        document.addEventListener("keydown", function(event) {
+            var zwart = document.getElementById("zwart2");
+            var row = zwart.parentNode.rowIndex;
+            var cell = zwart.cellIndex;
+            function clear(item) {
+                item.style.backgroundColor = "white";
+                item.id = "";
+            }
+            function move(row, cell) {
+                var table = document.getElementById("move2");
+                console.log(cell + " " + table.rows[row].cells.length);
+                if ((row <= table.rows.length - 1 && row >= 0) && (cell <= table.rows[row].cells.length - 1 && cell >= 0)) {
+                    if (table.rows[row].cells[cell].style.backgroundColor != "red") {
+                        clear(zwart);
+                        console.log(row + " " + cell);
+                        table.rows[row].cells[cell].style.backgroundColor = "black";
+                        table.rows[row].cells[cell].id = "zwart2";
+                    }
+                }
+            }
+            if (event.keyCode == 87) {
+                move(row - 1, cell);
+            } else if (event.keyCode == 83) {
+                move(row + 1, cell);
+            } else if (event.keyCode == 65) {
+                move(row, cell - 1);
+            } else if (event.keyCode == 68) {
+                move(row, cell + 1);
+            }
+        });
+        function block(event, item) {
+            if (event.shiftKey) {
+                item.style.backgroundColor = "white";
+            } else {
+                item.style.backgroundColor = "red";
+            }
+        }
+    </script>
+    <p>9.1</p>
+    <button onclick="timer(prompt('Hoelang moet de timer duren in secondes?'))">Timer</button>
+    <p>9.2</p>
+    <button onclick="timer(prompt('Hoelang moet de timer duren in secondes?'))">Timer</button>
+    <button onclick="stoptimer()">Stop Timer</button>
+    <p>9.3</p>
+    <p>document.getElementsByTagName("a"), document.querySelectorAll("a");</p>
+    <p>9.4</p>
+    <p>1. Math.pow(Math.PI, 2)<br>2. Math.pow(Math.cos(Math.pow(2,Math.SQRT1_2)),3)<br>3. Math.pow(Math.log(13), Math.E)<br>4. Math.pow(Math.E, 2)</p>
+    <p>9.5</p>
+    <p>Ronald Nijssen</p>
+    <p id="gegevens" style="display: none">Woonplaats: Vlaardingen<br>GeboorteDatum: 30-11-1996<br></p>
+    <button onclick="extra(this)">Geef details weer</button>
+    <p>9.6</p>
+    <div onclick="insertname(this)">Klik hier</div>
+    <p>9.7</p>
+    <table border="1" width="20%">
+        <tr>
+            <td onmouseover="over(this)" onmouseleave="exit(this)">0</td>
+            <td onmouseover="over(this)" onmouseleave="exit(this)">0</td>
+            <td onmouseover="over(this)" onmouseleave="exit(this)">0</td>
+        </tr>
+        <tr>
+            <td onmouseover="over(this)" onmouseleave="exit(this)">0</td>
+            <td onmouseover="over(this)" onmouseleave="exit(this)">0</td>
+            <td onmouseover="over(this)" onmouseleave="exit(this)">0</td>
+        </tr>
+        <tr>
+            <td onmouseover="over(this)" onmouseleave="exit(this)">0</td>
+            <td onmouseover="over(this)" onmouseleave="exit(this)">0</td>
+            <td onmouseover="over(this)" onmouseleave="exit(this)">0</td>
+        </tr>
+    </table>
+    <p>9.8</p>
+    <table border="1">
+        <tr>
+            <td onmousedown="bke(this)" height="20px" width="20px"></td>
+            <td onmousedown="bke(this)" height="20px" width="20px"></td>
+            <td onmousedown="bke(this)" height="20px" width="20px"></td>
+        </tr>
+        <tr>
+            <td onmousedown="bke(this)" height="20px" width="20px"></td>
+            <td onmousedown="bke(this)" height="20px" width="20px"></td>
+            <td onmousedown="bke(this)" height="20px" width="20px"></td>
+        </tr>
+        <tr>
+            <td onmousedown="bke(this)" height="20px" width="20px"></td>
+            <td onmousedown="bke(this)" height="20px" width="20px"></td>
+            <td onmousedown="bke(this)" height="20px" width="20px"></td>
+        </tr>
+    </table>
+    <p>9.9</p>
+    <table border="1" id="move">
+        <tr>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+        </tr>
+        <tr>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+        </tr>
+        <tr>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px" style="background-color: black" id="zwart"></td>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+        </tr>
+        <tr>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+        </tr>
+        <tr>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+            <td height="20px" width="20px"></td>
+        </tr>
+    </table>
+    <p>9.10</p>
+    <table border="1" id="move2">
+        <tr>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+        </tr>
+        <tr>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+        </tr>
+        <tr>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+        </tr>
+        <tr>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+        </tr>
+        <tr>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)" style="background-color: black" id="zwart2"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+        </tr>
+        <tr>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+        </tr>
+        <tr>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+        </tr>
+        <tr>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+        </tr>
+        <tr>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+            <td height="20px" width="20px" onclick="block(event, this)"></td>
+        </tr>
+    </table>
 </body>
 </html>
