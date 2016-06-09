@@ -3,11 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>23. Sinus golf met tekst</title>
-    <script>
-
-    </script>
 </head>
 <body>
-
+    <div id="move" style="position: fixed; display: inline; margin-left: 200px; top: 0; left: 0">*</div>
+    <script>
+        var ast = document.getElementById("move");
+        var i = 0;
+        function cos() {
+            if (i <= 360) {
+                var cos = Math.sin(i).toFixed(3);
+                ast.style.left = cos * 10 + "px";
+                ast.style.top = i * 10 + "px";
+                if (i * 10 > screen.height) {
+                    i = 0;
+                }
+                i++;
+            }
+        }
+    </script>
+<button onclick="setInterval(function() {
+    cos()
+}, 100)">Start</button>
 </body>
 </html>
