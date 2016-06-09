@@ -11,6 +11,7 @@
         var e5 = 20;
         var e10 = 10;
         var e20 = 5;
+        var match = [];
 
         for (a = 0; a <= e20; a++) {
             for (b = 0; b <= e10; b++) {
@@ -18,9 +19,8 @@
                     for (d = 0; d <= e2; d++) {
                         for (e = 0; e <= e1; e++) {
                             for (f = 0; f <= e050; f++) {
-                                if (a+b+c+d+e+f == 100) {
-                                    document.write(a + "" + b + "" + c + "" + d + "" + e + "" + f + " = 100");
-                                    array.push();
+                                if ((a * 20) + (b * 10) + (c * 5) + (d * 2) + (e * 1) + (f * 0.5) == 100) {
+                                    match.push(a + " X €20 " + b + " X €10 " + c + " X €5 " + d + " X €2 " + e + " X €1 " + f + " X €0,50 = €100<br>");
                                     //console.log(a+b+c+d+e+f)
                                 }
                             }
@@ -29,8 +29,9 @@
                 }
             }
         }
-        for (i = 0; i < fLen; i++) {
-            text += "<li>" + fruits[i] + "</li>";
+        document.write(match.length + " Matches<br>");
+        for (i = 0; i < match.length; i++) {
+            document.write(match[i]);
         }
     </script>
 </head>
