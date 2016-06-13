@@ -6,10 +6,12 @@
     <script>
         window.onload = function () {
             var x = 100;
-            var y = 700;
+            var y = 680;
             var speed = 5;
-            var angle = -60;
+            var angle = -90;
             var mod = 0;
+            var fouten = 0;
+            var fout = document.getElementById("fout");
 
             var canvas = document.getElementById("canvas");
             var context = canvas.getContext("2d");
@@ -27,9 +29,11 @@
                 var context = canvas.getContext("2d");
                 context.clearRect(0, 0, 800, 800);
 
-                context.fillRect(0, 0, 100, 800);
-                context.fillRect(500, 0, 100, 800);
-                context.fillRect(300, 0, 100, 800);
+                context.fillRect(0, 0, 10, 800);
+                context.fillRect(200, 150, 10, 650);
+                context.fillRect(400, 0, 10, 650);
+                context.fillRect(600, 150, 10, 800);
+                context.fillRect(0, 0, 800, 10);
                 context.stroke();
 
                 x += (speed*mod) * Math.cos(Math.PI/180 * angle);
@@ -43,14 +47,19 @@
 
                 if (x >= 800) {
                     x = 800;
+                    fouten++;
                 } else if ( x < 0) {
                     x = 0;
+                    fouten++;
                 } else if (y >= 800) {
                     y = 800;
+                    fouten++;
                 } else if (y < 0) {
                     y = 0;
+                    fouten++;
                 }
                 //console.log("X " + x + "Y " + y);
+                fout.innerHTML = "Fouten: " + fouten;
             }
 
             function keyup_handler(event) {
@@ -75,5 +84,6 @@
 </head>
 <body>
     <canvas id="canvas" height="800" width="800" style="border: 2px solid #333;"></canvas>
+    <div id="fout"></div>
 </body>
 </html>
