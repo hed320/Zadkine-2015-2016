@@ -5,10 +5,10 @@
     <title>Car</title>
     <script>
         window.onload = function () {
-            var x = 0;
-            var y = 0;
+            var x = 100;
+            var y = 700;
             var speed = 5;
-            var angle = 0;
+            var angle = -60;
             var mod = 0;
 
             var canvas = document.getElementById("canvas");
@@ -17,7 +17,7 @@
             car.src = "car.png";
 
             window.addEventListener("keydown", keypress_handler, false);
-            window.addEventListener("keyup", keypress_handler, false);
+            window.addEventListener("keyup", keyup_handler, false);
 
             var moveinterval = setInterval(function () {
                 draw();
@@ -27,8 +27,10 @@
                 var context = canvas.getContext("2d");
                 context.clearRect(0, 0, 800, 800);
 
-                context.fillStyle = "rgb(200, 100, 220)";
-                context.fillRect(50, 50, 100, 100);
+                context.fillRect(0, 0, 100, 800);
+                context.fillRect(500, 0, 100, 800);
+                context.fillRect(300, 0, 100, 800);
+                context.stroke();
 
                 x += (speed*mod) * Math.cos(Math.PI/180 * angle);
                 y += (speed*mod) * Math.sin(Math.PI/180 * angle);
@@ -38,6 +40,17 @@
                 context.rotate(Math.PI/180 * angle);
                 context.drawImage(car, -(car.width/2), -(car.height/2));
                 context.restore();
+
+                if (x >= 800) {
+                    x = 800;
+                } else if ( x < 0) {
+                    x = 0;
+                } else if (y >= 800) {
+                    y = 800;
+                } else if (y < 0) {
+                    y = 0;
+                }
+                //console.log("X " + x + "Y " + y);
             }
 
             function keyup_handler(event) {
