@@ -7,14 +7,9 @@
         window.onload = function () {
             var x = 100;
             var y = 680;
-            var speed = 5;
-            var angle = -90;
-            var mod = 0;
             var fouten = 0;
             var fout = document.getElementById("fout");
 
-            var canvas = document.getElementById("canvas");
-            var context = canvas.getContext("2d");
             var car = new Image();
             car.src = "car.png";
 
@@ -26,7 +21,13 @@
             }, 30);
 
             function draw() {
+                var canvas = document.getElementById("canvas");
                 var context = canvas.getContext("2d");
+
+                var speed = 5;
+                var angle = -90;
+                var mod = 0;
+
                 context.clearRect(0, 0, 800, 800);
 
                 context.fillRect(0, 0, 10, 800);
