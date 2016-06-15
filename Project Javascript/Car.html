@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>Car</title>
     <script>
+        function cnvs_getCoordinates(e) {
+            x=e.clientX;
+            y=e.clientY;
+            document.getElementById("xycoordinates").innerHTML="Coordinates: (" + x + "," + y + ")";
+        }
+
+        function cnvs_clearCoordinates() {
+            document.getElementById("xycoordinates").innerHTML="";
+        }
+
         window.onload = function () {
             var x = 100;
             var y = 680;
@@ -35,6 +45,8 @@
                 context.fillRect(400, 0, 10, 650);
                 context.fillRect(600, 150, 10, 800);
                 context.fillRect(0, 0, 800, 10);
+                context.fillRect(790, 0, 10, 800);
+                context.fillRect(0, 790, 800, 10);
                 context.stroke();
 
                 x += (speed*mod) * Math.cos(Math.PI/180 * angle);
@@ -84,7 +96,8 @@
     </script>
 </head>
 <body>
-    <canvas id="canvas" height="800" width="800" style="border: 2px solid #333;"></canvas>
+    <canvas id="canvas" height="800" width="800" style="border: 2px solid #333;" onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()"></canvas>
     <div id="fout"></div>
+    <div id="xycoordinates"></div>
 </body>
 </html>
