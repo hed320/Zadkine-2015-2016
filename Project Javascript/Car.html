@@ -4,26 +4,16 @@
     <meta charset="UTF-8">
     <title>Car</title>
     <script>
-        function cnvs_getCoordinates(e) {
-            x=e.clientX;
-            y=e.clientY;
-            document.getElementById("xycoordinates").innerHTML="Coordinates: (" + x + "," + y + ")";
-        }
-
-        function cnvs_clearCoordinates() {
-            document.getElementById("xycoordinates").innerHTML="";
-        }
-
         window.onload = function () {
             var x = 80;
             var y = 700;
             var angle = -90;
             var mod = 0;
-
             var speed = 5;
+            var start, eind = null;
+            var tottime, fouten = 0;
 
-            var fouten = 0;
-            var foutdiv = document.getElementById("fout");
+            var tijddiv =  document.getElementById("tijd");
 
             var car = new Image();
             car.src = "car.png";
@@ -59,20 +49,73 @@
                 context.drawImage(car, -(car.width/2), -(car.height/2));
                 context.restore();
 
+                //Rechts
                 if (x >= 760) {
                     x = 759;
                     fouten++;
+                //Links
                 } else if (x < 35) {
                     x = 36;
                     fouten++;
+                //Onder
                 } else if (y >= 760) {
                     y = 759;
                     fouten++;
+                //Boven
                 } else if (y < 35) {
                     y = 36;
                     fouten++;
                 }
-                foutdiv.innerHTML = "Fouten: " + fouten + " X: " + x + " Y: " + y;
+
+                //Lijn 1
+                if ((x >= 122 && x <= 188) && (y <= 760 && y >= 170)) {
+                    if (x <= 151) {
+                        x = 110;
+                    } else {
+                        x = 200;
+                    }
+                    fouten++;
+                //Lijn 2
+                } else if ((x >= 270 && x <= 340) && (y <= 730 && y >= 80)) {
+                    if (x <= 305) {
+                        x = 260;
+                    } else {
+                        x = 350;
+                    }
+                    fouten++;
+                //Lijn 3
+                } else if ((x >= 420 && x <= 490) && (y <= 760 && y >= 170)) {
+                    if (x <= 454) {
+                        x = 410;
+                    } else {
+                        x = 502;
+                    }
+                    fouten++;
+                //Lijn 4
+                } else if ((x >= 570 && x <= 640) && (y <= 730 && y >= 80)) {
+                    if (x <= 605) {
+                        x = 560;
+                    } else {
+                        x = 650;
+                    }
+                    fouten++;
+                //Lijn 5
+                } else if ((x >= 0 && x <= 640) && (y <= 140 && y >= 70)) {
+                    if (y <= 105) {
+                        y = 60;
+                    } else {
+                        y = 150;
+                    }
+                    fouten++;
+                }
+
+                if ((x <= 80 && y <= 70) && eind == null) {
+                    eind = new Date().getTime();
+                    tottime = (eind - start) / 1000;
+                    tijddiv.innerHTML = "Einde behaald in: " + tottime + " met " + fouten + " fouten.";
+                } else if (start != null && eind == null) {
+                    tijddiv.innerHTML = "Tijd: " + (new Date().getTime() - start) / 1000 + " met " + fouten + " fouten.";
+                }
             }
 
             function keyup_handler(event) {
@@ -91,13 +134,15 @@
                 } else if (event.keyCode == 68) {
                     angle += 5;
                 }
+                if (start == null) {
+                    start = new Date().getTime();
+                }
             }
         }
     </script>
 </head>
 <body>
-    <canvas id="canvas" height="800" width="800" style="border: 2px solid #333;" onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()"></canvas>
-    <div id="fout"></div>
-    <div id="xycoordinates"></div>
+    <canvas id="canvas" height="800" width="800" style="border: 2px solid #333;"></canvas>
+    <div id="tijd"></div>
 </body>
 </html>
