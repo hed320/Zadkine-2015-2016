@@ -60,7 +60,7 @@
                 if (x >= 800) {
                     x = 800;
                     fouten++;
-                } else if ( x < 0) {
+                } else if (x < 0) {
                     x = 0;
                     fouten++;
                 } else if (y >= 800) {
@@ -70,7 +70,7 @@
                     y = 0;
                     fouten++;
                 }
-                foutdiv.innerHTML = "Fouten: " + fouten;
+                foutdiv.innerHTML = "Fouten: " + fouten + " X: " + x + " Y: " + y;
             }
 
             function keyup_handler(event) {
