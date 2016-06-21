@@ -12,7 +12,7 @@
     <input type="button" value="rood" onclick="maakRood()">
     <input type="button" value="groen" onclick="maakGroen()">
     <input type="button" value="geel" onclick="maakGeel()">
-    <input type="button" value="uit" onclick="maakUit()">
+    <input type="button" value="uit" onclick="zetUit()">
     <script>
         var stoplicht = document.getElementById("stoplicht");
 
@@ -25,10 +25,10 @@
         }
 
         function maakGeel() {
-            stoplicht.src = "./verkeer/stoplichtgeel.png";
+            stoplicht.src = "./verkeer/stoplichtoranje.png";
         }
 
-        function maakUit() {
+        function zetUit() {
             stoplicht.src = "./verkeer/stoplichtuit.png";
         }
     </script>
