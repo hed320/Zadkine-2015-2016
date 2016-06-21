@@ -2,21 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Stoplicht 2</title>
+    <title>Stoplicht 3</title>
 </head>
 <body>
     <form>
-        <h1>Stoplicht2.html</h1>
-        <p>Verwisselen van vier plaatjes met vier knoppen</p>
-        <img id="stoplicht" onclick="veranderStoplicht()" src="./verkeer/stoplichtuit.png">
+        <h1>Stoplicht3.html</h1>
+        <p>Schalen en positioneren van het plaatje</p>
         <p>Klik op een knop om het stoplicht te veranderen</p>
         <input type="button" value="rood" onclick="maakRood()">
         <input type="button" value="groen" onclick="maakGroen()">
         <input type="button" value="geel" onclick="maakGeel()">
         <input type="button" value="uit" onclick="zetUit()">
+        <img id="stoplicht" onclick="veranderStoplicht()" src="./verkeer/stoplichtuit.png" width="100px">
     </form>
     <script>
         var stoplicht = document.getElementById("stoplicht");
+        stoplicht.style.position = "absolute";
+        stoplicht.style.left = "715px";
+        stoplicht.style.top = "510px";
 
         function maakRood() {
             stoplicht.src = "./verkeer/stoplichtrood.png";
