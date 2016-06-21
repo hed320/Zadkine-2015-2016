@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kruising 3</title>
+</head>
+<body background="./verkeer/kruising.png">
+<form>
+    <h1>kruising3.html</h1>
+    <input type="button" value="start" onclick="starten()">
+    <input type="button" value="stop" onclick="stop()">
+    <input type="button" value="opnieuw" onclick="opnieuw()">
+</form>
+<form>
+    <input type="button" value="aanzetten" onclick="aanzetten()">
+    <input type="button" value="knipperen" onclick="knipperen()">
+    <input type="button" value="uitzetten" onclick="uitzetten()">
+    <img id="stoplichtonder" src="./verkeer/stoplichtuit.png" width="50px" style="position: absolute; left: 1520px; top: 795px;">
+    <img id="autoonder" src="./verkeer/autogroen.png" width="100px" style="transform: rotate(-90deg); position:absolute; top: 880px; left: 1440px;">
+    <img id="stoplichtboven" src="./verkeer/stoplichtuit.png" width="50px" style="position: absolute; left: 1170px; top: 475px; transform: rotate(180deg)">
+    <img id="autoboven" src="./verkeer/autogroen.png" width="100px" style="transform: rotate(90deg); position:absolute; top: 400px; left: 1200px;">
+    <img id="stoplichtlinks" src="./verkeer/stoplichtuit.png" width="50px" style="position: absolute; left: 1165px; top: 790px; transform: rotate(90deg)">
+    <img id="autolinks" src="./verkeer/autogroen.png" width="100px" style="position:absolute; top: 740px; left: 1060px;">
+    <img id="stoplichtrechts" src="./verkeer/stoplichtuit.png" width="50px" style="position: absolute; left: 1525px; top: 480px; transform: rotate(270deg)">
+    <img id="autorechts" src="./verkeer/autogroen.png" width="100px" style="transform: rotate(180deg); position:absolute; top: 540px; left: 1580px;">
+</form>
+<script>
+    var stoplichtonder = document.getElementById("stoplichtonder");
+    var autoonder = document.getElementById("autoonder");
+    var stoplichtboven = document.getElementById("stoplichtboven");
+    var autoboven = document.getElementById("autoboven");
+    var stoplichtlinks = document.getElementById("stoplichtlinks");
+    var autolinks = document.getElementById("autolinks");
+    var stoplichtrechts = document.getElementById("stoplichtrechts");
+    var autorechts = document.getElementById("autorechts");
+    var werken, buitenwerking, rijden;
+    var irbb = false;
+    var irlr = false;
+
+    function starten() {
+        var ondersnelheid = 5;
+        var bovensnelheid = 5;
+        var linkssnelheid = 5;
+        var rechtssnelheid = 5;
+        if (parseInt(autoonder.style.top) <= 30 ) {
+            autoonder.style.top = "880px";
+        }
+        if (parseInt(autoboven.style.top) >= 880 ) {
+            autoboven.style.top = "30px";
+        }
+        if (parseInt(autolinks.style.left) >= 1820 ) {
+            autolinks.style.left = "0px";
+        }
+        if (parseInt(autorechts.style.left) <= 0 ) {
+            autorechts.style.left = "1820px";
+        }
+        if (irbb && parseInt(autoonder.style.top) == 850) {
+            ondersnelheid = 0;
+        }
+        if (irbb && parseInt(autoboven.style.top) == 440) {
+            bovensnelheid = 0;
+        }
+        if (irlr && parseInt(autolinks.style.left) == 1060) {
+            linkssnelheid = 0;
+        }
+        if (irlr && parseInt(autorechts.style.left) == 1580) {
+            rechtssnelheid = 0;
+        }
+        autoboven.style.top = parseInt(autoboven.style.top) + bovensnelheid + "px";
+        autoonder.style.top = parseInt(autoonder.style.top) - ondersnelheid + "px";
+        autolinks.style.left = parseInt(autolinks.style.left) + linkssnelheid + "px";
+        autorechts.style.left = parseInt(autorechts.style.left) - rechtssnelheid + "px";
+        console.log(autolinks.style.left + " " + autorechts.style.left);
+        rijden = setTimeout(starten, 10);
+    }
+
+    function stop() {
+        clearTimeout(rijden);
+    }
+
+    function opnieuw() {
+        clearTimeout(rijden);
+        autoonder.style.top = "880px";
+        autoboven.style.top = "400px";
+        autolinks.style.left = "1060px";
+        autorechts.style.left = "1580px";
+    }
+
+    function aanzetten() {
+        clearTimeout(buitenwerking);
+        maakRoodGroen();
+        werken = setTimeout(maakRoodGeel, 4000);
+        werken = setTimeout(maakRoodRood, 6000);
+        werken = setTimeout(maakGroenRood, 8000);
+        werken = setTimeout(maakGeelRood, 12000);
+        werken = setTimeout(maakRoodRood, 15000);
+        werken = setTimeout(aanzetten, 17000);
+    }
+
+    function knipperen() {
+        clearTimeout(werken);
+        maakGeel();
+        buitenwerking = setTimeout(zetUit, 500);
+        buitenwerking = setTimeout(knipperen, 1000);
+    }
+
+    function uitzetten() {
+        zetUit();
+        clearTimeout(buitenwerking);
+        clearTimeout(werken);
+    }
+
+    function maakRoodGroen() {
+        stoplichtboven.src = "./verkeer/stoplichtgroen.png";
+        stoplichtonder.src = "./verkeer/stoplichtgroen.png";
+        stoplichtlinks.src = "./verkeer/stoplichtrood.png";
+        stoplichtrechts.src = "./verkeer/stoplichtrood.png";
+        irbb = false;
+        irlr = true;
+    }
+
+    function maakRoodGeel() {
+        stoplichtboven.src = "./verkeer/stoplichtoranje.png";
+        stoplichtonder.src = "./verkeer/stoplichtoranje.png";
+        stoplichtlinks.src = "./verkeer/stoplichtrood.png";
+        stoplichtrechts.src = "./verkeer/stoplichtrood.png";
+        irbb = false;
+        irlr = true;
+    }
+
+    function maakGroenRood() {
+        stoplichtboven.src = "./verkeer/stoplichtrood.png";
+        stoplichtonder.src = "./verkeer/stoplichtrood.png";
+        stoplichtlinks.src = "./verkeer/stoplichtgroen.png";
+        stoplichtrechts.src = "./verkeer/stoplichtgroen.png";
+        irbb = true;
+        irlr = false;
+    }
+
+    function maakRoodRood() {
+        stoplichtboven.src = "./verkeer/stoplichtrood.png";
+        stoplichtonder.src = "./verkeer/stoplichtrood.png";
+        stoplichtlinks.src = "./verkeer/stoplichtrood.png";
+        stoplichtrechts.src = "./verkeer/stoplichtrood.png";
+        irbb = true;
+        irlr = true;
+    }
+
+    function maakGeelRood() {
+        stoplichtboven.src = "./verkeer/stoplichtrood.png";
+        stoplichtonder.src = "./verkeer/stoplichtrood.png";
+        stoplichtlinks.src = "./verkeer/stoplichtoranje.png";
+        stoplichtrechts.src = "./verkeer/stoplichtoranje.png";
+        irbb = true;
+        irlr = false;
+    }
+
+    function zetUit() {
+        stoplichtboven.src = "./verkeer/stoplichtuit.png";
+        stoplichtonder.src = "./verkeer/stoplichtuit.png";
+        stoplichtlinks.src = "./verkeer/stoplichtuit.png";
+        stoplichtrechts.src = "./verkeer/stoplichtuit.png";
+        irbb = false;
+        irlr = false;
+    }
+</script>
+</body>
+</html>
