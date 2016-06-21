@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Space game</title>
+    <script>
+        window.addEventListener("keydown", keypress_handler, false);
+        var x = 0;
+        var y = 0;
+        var starsarr = [];
+        function canvasSpaceGame(x, y) {
+            canvas = document.getElementById("myCanvas");
+
+            if (canvas.getContext) {
+                ctx = canvas.getContext("2d");
+
+                ctx.fillStyle = "black";
+                ctx.rect(0, 0, 800, 800);
+                ctx.fill();
+
+                stars();
+                UFO(x, y);
+            }
+        }
+
+        function stars() {
+            if (starsarr.length == 0) {
+                for (i = 0; i <= 200; i++) {
+                    var x = Math.floor(Math.random() * 799);
+                    var y = Math.floor(Math.random() * 799);
+
+                    starsarr.push(x + " " + y);
+                }
+            }
+            if (starsarr.length >= 0) {
+                for (i = 0; i < starsarr.length; i++) {
+                    var xy = starsarr[i];
+                    var split = xy.split(" ");
+                    var x = split[0];
+                    var y = split[1];
+                    console.log(starsarr[i]);
+                    ctx.fillStyle = "white";
+
+                    if (x < 30 || y < 30) {
+                        ctx.fillStyle = "black";
+                    }
+                    ctx.beginPath();
+                    ctx.arc(x, y, 3, 0, Math.PI * 2, true);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+            }
+        }
+
+        function UFO(x, y) {
+            ctx.beginPath();
+            ctx.moveTo(28.4 + x, 16.9 + y);
+            ctx.bezierCurveTo(28.4 + x, 19.7 + y, 22.9 + x, 22.0 + y, 16.0 + x, 22.0 + y);
+            ctx.bezierCurveTo(9.1 + x, 22.0 + y, 3.6 + x, 19.7 + y, 3.6 + x, 16.9 + y);
+            ctx.bezierCurveTo(3.6 + x, 14.1 + y, 9.1 + x, 11.8 + y, 16.0 + x, 11.8 + y);
+            ctx.bezierCurveTo(22.9 + x, 11.8 + y, 28.4 + x, 14.1 + y, 28.4 + x, 16.9 + y);
+            ctx.closePath();
+            ctx.fillStyle = "rgb(222, 103, 0)";
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.moveTo(22.3 + x, 12.0 + y);
+            ctx.bezierCurveTo(22.3 + x, 13.3 + y, 19.4 + x, 14.3 + y, 15.9 + x, 14.3 + y);
+            ctx.bezierCurveTo(12.4 + x, 14.3 + y, 9.6 + x, 13.3 + y, 9.6 + x, 12.0 + y);
+            ctx.bezierCurveTo(9.6 + x, 10.8 + y, 12.4 + x, 9.7 + y, 15.9 + x, 9.7 + y);
+            ctx.bezierCurveTo(22.9 + x, 11.8 + y, 28.4 + x, 14.1 + y, 28.4 + x, 16.9 + y);
+            ctx.closePath();
+            ctx.fillStyle = "rgb(51, 190, 0)";
+            ctx.fill();
+        }
+
+        function keypress_handler(event) {
+            if (event.keyCode == 87) {
+                y -= 2;
+                canvasSpaceGame(x, y)
+            } else if (event.keyCode == 83) {
+                y += 2;
+                canvasSpaceGame(x, y)
+            } else if (event.keyCode == 65) {
+                x -= 2;
+                canvasSpaceGame(x, y)
+            } else if (event.keyCode == 68) {
+                x += 2;
+                canvasSpaceGame(x, y)
+            }
+        }
+    </script>
+</head>
+<body onload="canvasSpaceGame(0, 0)">
+<h1>Canvas Space Game</h1>
+<canvas id="myCanvas" width="800" height="800"></canvas>
+</body>
+</html>
