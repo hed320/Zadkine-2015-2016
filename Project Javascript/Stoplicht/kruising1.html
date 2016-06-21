@@ -15,25 +15,23 @@
         <input type="button" value="aanzetten" onclick="aanzetten()">
         <input type="button" value="knipperen" onclick="knipperen()">
         <input type="button" value="uitzetten" onclick="uitzetten()">
-        <img id="stoplicht" onclick="veranderStoplicht()" src="./verkeer/stoplichtuit.png" width="50px">
-        <img id="auto" src="./verkeer/autogroen.png" width="100px">
+        <img id="stoplichtonder" src="./verkeer/stoplichtuit.png" width="50px" style="position: absolute; left: 1520px; top: 795px;">
+        <img id="autoonder" src="./verkeer/autogroen.png" width="100px" style="transform: rotate(-90deg); position:absolute; top: 850px; left: 1440px;">
+        <img id="stoplichtboven" src="./verkeer/stoplichtuit.png" width="50px" style="position: absolute; left: 1170px; top: 475px; transform: rotate(180deg)">
+        <img id="autoboven" src="./verkeer/autogroen.png" width="100px" style="transform: rotate(90deg); position:absolute; top: 440px; left: 1200px;">
     </form>
     <script>
-        var stoplicht = document.getElementById("stoplicht");
-        var auto = document.getElementById("auto");
-        stoplicht.style.position = "absolute";
-        stoplicht.style.left = "1520px";
-        stoplicht.style.top = "795px";
-        auto.style.position = "absolute";
-        auto.style.left = "1430px";
-        auto.style.top = "875px";
-        auto.style.transform = "rotate(-90deg)";
+        var stoplichtonder = document.getElementById("stoplichtonder");
+        var autogonder = document.getElementById("auto");
+        var stoplichtboven = document.getElementById("stoplichtboven");
+        var autoboven = document.getElementById("auto");
         var werken, buitenwerking, rijden;
-        var irlr = false;
+        var irob = false;
+        var irbo = false;
         var snelheid = 5;
 
         function starten() {
-            if (irlr && parseInt(auto.style.top) == 850) {
+            if (irob && parseInt(auto.style.top) == 850) {
                 snelheid = 0;
                 stop();
             } else {
@@ -78,22 +76,22 @@
 
         function maakRood() {
             stoplicht.src = "./verkeer/stoplichtrood.png";
-            irlr = true;
+            irob = true;
         }
 
         function maakGroen() {
             stoplicht.src = "./verkeer/stoplichtgroen.png";
-            irlr = false;
+            irob = false;
         }
 
         function maakGeel() {
             stoplicht.src = "./verkeer/stoplichtoranje.png";
-            irlr = false;
+            irob = false;
         }
 
         function zetUit() {
             stoplicht.src = "./verkeer/stoplichtuit.png";
-            irlr = false;
+            irob = false;
         }
     </script>
 </body>
