@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <title>Space game</title>
     <script>
-        window.addEventListener("keydown", keypress_handler, false);
         var x = 0;
         var y = 0;
         var starsarr = [];
+        var map = [];
+        onkeydown = onkeyup = function(e){
+            map[e.keyCode] = e.type == 'keydown';
+            keypress_handler();
+        };
         function canvasSpaceGame(x, y) {
             canvas = document.getElementById("myCanvas");
 
@@ -26,8 +30,8 @@
         function stars() {
             if (starsarr.length == 0) {
                 for (i = 0; i <= 200; i++) {
-                    var x = Math.floor(Math.random() * 799);
-                    var y = Math.floor(Math.random() * 799);
+                    x = Math.floor(Math.random() * 799);
+                    y = Math.floor(Math.random() * 799);
 
                     starsarr.push(x + " " + y);
                 }
@@ -36,9 +40,8 @@
                 for (i = 0; i < starsarr.length; i++) {
                     var xy = starsarr[i];
                     var split = xy.split(" ");
-                    var x = split[0];
-                    var y = split[1];
-                    console.log(starsarr[i]);
+                    x = split[0];
+                    y = split[1];
                     ctx.fillStyle = "white";
 
                     if (x < 30 || y < 30) {
@@ -74,17 +77,20 @@
             ctx.fill();
         }
 
-        function keypress_handler(event) {
-            if (event.keyCode == 87) {
+        function keypress_handler() {
+            if (map[87] == true) {
                 y -= 2;
                 canvasSpaceGame(x, y)
-            } else if (event.keyCode == 83) {
+            }
+            if (map[83] == true) {
                 y += 2;
                 canvasSpaceGame(x, y)
-            } else if (event.keyCode == 65) {
+            }
+            if (map[65] == true) {
                 x -= 2;
                 canvasSpaceGame(x, y)
-            } else if (event.keyCode == 68) {
+            }
+            if (map[68] == true) {
                 x += 2;
                 canvasSpaceGame(x, y)
             }
