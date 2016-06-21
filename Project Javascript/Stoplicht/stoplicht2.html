@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stoplicht 2</title>
+</head>
+<body>
+    <h1>Stoplicht2.html</h1>
+    <p>Verwisselen van vier plaatjes met vier knoppen</p>
+    <img id="stoplicht" onclick="veranderStoplicht()" src="./verkeer/stoplichtuit.png">
+    <p>Klik op een knop om het stoplicht te veranderen</p>
+    <input type="button" value="rood" onclick="maakRood()">
+    <input type="button" value="groen" onclick="maakGroen()">
+    <input type="button" value="geel" onclick="maakGeel()">
+    <input type="button" value="uit" onclick="maakUit()">
+    <script>
+        var stoplicht = document.getElementById("stoplicht");
+
+        function maakRood() {
+            stoplicht.src = "./verkeer/stoplichtrood.png";
+        }
+
+        function maakGroen() {
+            stoplicht.src = "./verkeer/stoplichtgroen.png";
+        }
+
+        function maakGeel() {
+            stoplicht.src = "./verkeer/stoplichtgeel.png";
+        }
+
+        function maakUit() {
+            stoplicht.src = "./verkeer/stoplichtuit.png";
+        }
+    </script>
+</body>
+</html>
