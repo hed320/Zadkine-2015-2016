@@ -22,26 +22,31 @@
     </form>
     <script>
         var stoplichtonder = document.getElementById("stoplichtonder");
-        var autogonder = document.getElementById("auto");
+        var autoonder = document.getElementById("autoonder");
         var stoplichtboven = document.getElementById("stoplichtboven");
-        var autoboven = document.getElementById("auto");
+        var autoboven = document.getElementById("autoboven");
         var werken, buitenwerking, rijden;
         var irob = false;
         var irbo = false;
-        var snelheid = 5;
 
         function starten() {
-            if (irob && parseInt(auto.style.top) == 850) {
-                snelheid = 0;
-                stop();
-            } else {
-                if (parseInt(auto.style.top) <= 0 ) {
-                    auto.style.top = "880px";
-                }
-                snelheid = 5;
-                auto.style.top = parseInt(auto.style.top) - 5 + "px";
-                rijden = setTimeout(starten, 10);
+            var ondersnelheid = 5;
+            var bovensnelheid = 5;
+            if (parseInt(autoonder.style.top) <= 30 ) {
+                autoonder.style.top = "880px";
             }
+            if (parseInt(autoboven.style.top) >= 880 ) {
+                autoboven.style.top = "30px";
+            }
+            if (irob && parseInt(autoonder.style.top) == 850) {
+                ondersnelheid = 0;
+            }
+            if (irbo && parseInt(autoboven.style.top) == 440) {
+                bovensnelheid = 0;
+            }
+            autoboven.style.top = parseInt(autoboven.style.top) + bovensnelheid + "px";
+            autoonder.style.top = parseInt(autoonder.style.top) - ondersnelheid + "px";
+            rijden = setTimeout(starten, 40);
         }
 
         function stop() {
@@ -50,7 +55,8 @@
 
         function opnieuw() {
             clearTimeout(rijden);
-            auto.style.top = "880px"
+            autoonder.style.top = "850px";
+            autoboven.style.top = "440px";
         }
 
         function aanzetten() {
@@ -75,23 +81,31 @@
         }
 
         function maakRood() {
-            stoplicht.src = "./verkeer/stoplichtrood.png";
+            stoplichtboven.src = "./verkeer/stoplichtrood.png";
+            stoplichtonder.src = "./verkeer/stoplichtrood.png";
             irob = true;
+            irbo = true;
         }
 
         function maakGroen() {
-            stoplicht.src = "./verkeer/stoplichtgroen.png";
+            stoplichtboven.src = "./verkeer/stoplichtgroen.png";
+            stoplichtonder.src = "./verkeer/stoplichtgroen.png";
             irob = false;
+            irbo = false;
         }
 
         function maakGeel() {
-            stoplicht.src = "./verkeer/stoplichtoranje.png";
+            stoplichtboven.src = "./verkeer/stoplichtoranje.png";
+            stoplichtonder.src = "./verkeer/stoplichtoranje.png";
             irob = false;
+            irbo = false;
         }
 
         function zetUit() {
-            stoplicht.src = "./verkeer/stoplichtuit.png";
+            stoplichtboven.src = "./verkeer/stoplichtuit.png";
+            stoplichtonder.src = "./verkeer/stoplichtuit.png";
             irob = false;
+            irbo = false;
         }
     </script>
 </body>

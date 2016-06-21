@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kruising 1</title>
+</head>
+<body background="./verkeer/kruising.png">
+<form>
+    <h1>kruising1.html</h1>
+    <input type="button" value="start" onclick="starten()">
+    <input type="button" value="stop" onclick="stop()">
+    <input type="button" value="opnieuw" onclick="opnieuw()">
+</form>
+<form>
+    <input type="button" value="aanzetten" onclick="aanzetten()">
+    <input type="button" value="knipperen" onclick="knipperen()">
+    <input type="button" value="uitzetten" onclick="uitzetten()">
+    <img id="stoplichtonder" src="./verkeer/stoplichtuit.png" width="50px" style="position: absolute; left: 1520px; top: 795px;">
+    <img id="autoonder" src="./verkeer/autogroen.png" width="100px" style="transform: rotate(-90deg); position:absolute; top: 850px; left: 1440px;">
+    <img id="stoplichtboven" src="./verkeer/stoplichtuit.png" width="50px" style="position: absolute; left: 1170px; top: 475px; transform: rotate(180deg)">
+    <img id="autoboven" src="./verkeer/autogroen.png" width="100px" style="transform: rotate(90deg); position:absolute; top: 440px; left: 1200px;">
+</form>
+<script>
+    var stoplichtonder = document.getElementById("stoplichtonder");
+    var autoonder = document.getElementById("autoonder");
+    var stoplichtboven = document.getElementById("stoplichtboven");
+    var autoboven = document.getElementById("autoboven");
+    var werken, buitenwerking, rijden;
+    var irob = false;
+    var irbo = false;
+
+    function starten() {
+        var ondersnelheid = 5;
+        var bovensnelheid = 5;
+        if (parseInt(autoonder.style.top) <= 30 ) {
+            autoonder.style.top = "880px";
+        }
+        if (parseInt(autoboven.style.top) >= 880 ) {
+            autoboven.style.top = "30px";
+        }
+        if (irob && parseInt(autoonder.style.top) == 850) {
+            ondersnelheid = 0;
+        }
+        if (irbo && parseInt(autoboven.style.top) == 440) {
+            bovensnelheid = 0;
+        }
+        autoboven.style.top = parseInt(autoboven.style.top) + bovensnelheid + "px";
+        autoonder.style.top = parseInt(autoonder.style.top) - ondersnelheid + "px";
+        rijden = setTimeout(starten, 40);
+    }
+
+    function stop() {
+        clearTimeout(rijden);
+    }
+
+    function opnieuw() {
+        clearTimeout(rijden);
+        autoonder.style.top = "850px";
+        autoboven.style.top = "440px";
+    }
+
+    function aanzetten() {
+        clearTimeout(buitenwerking);
+        maakRood();
+        werken = setTimeout(maakGroen, 4000);
+        werken = setTimeout(maakGeel, 8000);
+        werken = setTimeout(aanzetten, 10000);
+    }
+
+    function knipperen() {
+        clearTimeout(werken);
+        maakGeel();
+        buitenwerking = setTimeout(zetUit, 500);
+        buitenwerking = setTimeout(knipperen, 1000);
+    }
+
+    function uitzetten() {
+        zetUit();
+        clearTimeout(buitenwerking);
+        clearTimeout(werken);
+    }
+
+    function maakRood() {
+        stoplichtboven.src = "./verkeer/stoplichtrood.png";
+        stoplichtonder.src = "./verkeer/stoplichtrood.png";
+        irob = true;
+        irbo = true;
+    }
+
+    function maakGroen() {
+        stoplichtboven.src = "./verkeer/stoplichtgroen.png";
+        stoplichtonder.src = "./verkeer/stoplichtgroen.png";
+        irob = false;
+        irbo = false;
+    }
+
+    function maakGeel() {
+        stoplichtboven.src = "./verkeer/stoplichtoranje.png";
+        stoplichtonder.src = "./verkeer/stoplichtoranje.png";
+        irob = false;
+        irbo = false;
+    }
+
+    function zetUit() {
+        stoplichtboven.src = "./verkeer/stoplichtuit.png";
+        stoplichtonder.src = "./verkeer/stoplichtuit.png";
+        irob = false;
+        irbo = false;
+    }
+</script>
+</body>
+</html>
