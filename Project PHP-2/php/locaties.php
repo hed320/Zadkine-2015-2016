@@ -1,6 +1,6 @@
 <?php
 
-$content = new TemplatePower("html/locaties.html");
+$content = new TemplatePower("include/locaties.include");
 $content->prepare();
 
 include_once("include/database.php");

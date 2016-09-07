@@ -1,4 +1,4 @@
 <?php
 
-$content = new TemplatePower("html/content.html");
+$content = new TemplatePower("include/content.include");
 $content->prepare();

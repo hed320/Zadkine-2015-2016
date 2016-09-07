@@ -1,5 +1,5 @@
 <?php
-$content = new TemplatePower("html/gebruikers.html");
+$content = new TemplatePower("include/gebruikers.include");
 $content->prepare();
 
 include_once("include/database.php");

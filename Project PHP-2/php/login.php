@@ -1,5 +1,5 @@
 <?php
-$content = new TemplatePower("html/login.html");
+$content = new TemplatePower("include/login.include");
 $content->prepare();
 
 if (!empty($_POST["email"]) and !empty($_POST["wachtwoord"])) {

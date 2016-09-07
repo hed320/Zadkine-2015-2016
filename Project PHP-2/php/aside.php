@@ -1,3 +1,3 @@
 <?php
-$aside = new TemplatePower("html/aside.html");
+$aside = new TemplatePower("include/aside.include");
 $aside->prepare();
