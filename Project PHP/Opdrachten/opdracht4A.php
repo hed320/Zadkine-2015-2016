@@ -1,4 +1,5 @@
 <?php
+//Fibonacci
 $f1 = 1;
 $f2 = 0;
 $fn = 1;
